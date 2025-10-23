@@ -4,5 +4,5 @@ namespace SuMejorPeso.Models;
     {
 
         public int coachId { get; set; } 
-        public required Coach Entrenador { get; set; }
+        public required Coach coach { get; set; }
     }

@@ -1,29 +1,43 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;  // ✅ Necesario para AddRazorRuntimeCompilation
+using SuMejorPeso.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+// ==================================
+// CONFIGURACIÓN DE SERVICIOS
+// ==================================
+builder.Services.AddDbContext<GymContext>(options =>
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        new MySqlServerVersion(new Version(8, 0, 34))
+    )
+);
+
+// ✅ Activar MVC + Razor Runtime Compilation
+builder.Services.AddControllersWithViews()
+    .AddRazorRuntimeCompilation();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// ==================================
+// PIPELINE DE LA APLICACIÓN
+// ==================================
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
-app.UseRouting();
+app.UseStaticFiles();
 
+app.UseRouting();
 app.UseAuthorization();
 
-app.MapStaticAssets();
-
+// ✅ Ruta por defecto
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
-
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

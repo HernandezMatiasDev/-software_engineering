@@ -1,0 +1,43 @@
+﻿@model IEnumerable<SuMejorPeso.Models.Member>
+
+@{
+    ViewData["Title"] = "Lista de Miembros";
+}
+
+<h1>Miembros registrados</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">➕ Nuevo miembro</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>DNI</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+            <th>Activo</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@item.name</td>
+        <td>@item.lastName</td>
+        <td>@item.dni</td>
+        <td>@item.phone</td>
+        <td>@item.email</td>
+        <td>@(item.state ? "Sí" : "No")</td>
+        <td>
+            <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.id">Ver</a>
+            <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@item.id">Editar</a>
+            <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.id">Eliminar</a>
+        </td>
+    </tr>
+}
+    </tbody>
+</table>

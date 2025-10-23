@@ -2,7 +2,7 @@ namespace SuMejorPeso.Models;
 
 public class User
 {
-    public required int id { init; get; }
+    public int id { set; get; }
     public required string userName { set; get; }
     public required string passwordHash { set; get; }
     public required string salt { set; get; }

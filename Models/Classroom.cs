@@ -2,8 +2,8 @@ namespace SuMejorPeso.Models;
 
 public class Classroom
 {
-    public required int id { init; get; }
-    public required Activity activity { set; get; }
+    public int id { set; get; }
+    public required Action action { set; get; }
     public required string name { set; get; }
     public required string description { set; get; }
 

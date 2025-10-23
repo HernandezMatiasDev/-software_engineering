@@ -1,0 +1,15 @@
+﻿@model SuMejorPeso.Models.Member
+
+@{
+    ViewData["Title"] = "Eliminar Miembro";
+}
+
+<h1>Eliminar miembro</h1>
+
+<h4>¿Seguro que desea eliminar a @Model.name @Model.lastName?</h4>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="id" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

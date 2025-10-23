@@ -2,9 +2,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 
 namespace SuMejorPeso.Models;
 
-public class Activity
+public class Action
 {
-    public required int id { init; get; }
+    public int id { set; get; }
     public required string name { set; get; }
     public required string description { set; get; }
 

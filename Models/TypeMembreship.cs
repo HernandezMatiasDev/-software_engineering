@@ -1,7 +1,7 @@
 namespace SuMejorPeso.Models;
     public class TypeMembreship
 {
-    public required int id { init; get; }
+    public int id { set; get; }
     public required string name { set; get; }
     public required string description { set; get; }
     public required int daysDuration { set; get; }

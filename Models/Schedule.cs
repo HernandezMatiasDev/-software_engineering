@@ -1,8 +1,8 @@
 namespace SuMejorPeso.Models;
 
-    public class Schedule
+    public abstract class Schedule
     {
-        public int id { get; init; }
+        public int id { get; set; }
         
         public required string dayWeek { get; set; }
         public TimeSpan startTime { get; set; } 

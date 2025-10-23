@@ -1,15 +1,44 @@
 namespace SuMejorPeso.Models;
-    public class Member : Person
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+public class Member : Person
 {
-    public required DateOnly birthdate { set; get; }
-    public string direction { set; get; } = string.Empty;
-    public required string gender { set; get; }
-    public required bool state { set; get; }
-    public License? license { set; get; }
-    public int? licenseId { set; get; }
-    public Membership? membership { set; get; }
-    public int? membershipId { set; get; }
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int id { get; set; }
+
+    [Required(ErrorMessage = "La fecha de nacimiento es obligatoria")]
+    [Display(Name = "Fecha de nacimiento")]
+    public DateOnly birthdate { get; set; }
+
+    [StringLength(200)]
+    [Display(Name = "Dirección")]
+    public string direction { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "Debe seleccionar un género")]
+    [Display(Name = "Género")]
+    public string gender { get; set; } = string.Empty;
+
+    [Display(Name = "Activo")]
+    public bool state { get; set; } = true;
+
+    // Relación con licencia (opcional)
+    [Display(Name = "Licencia")]
+    public License? license { get; set; }
+    public int? licenseId { get; set; }
+
+    // Relación con membresía (opcional)
+    [Display(Name = "Membresía")]
+    public Membership? membership { get; set; }
+    public int? membershipId { get; set; }
+
+    // Relación con asistencias
     public ICollection<Attendance> attendance { get; set; } = new List<Attendance>();
 
-    public string note { set; get; } = string.Empty;
+    [Display(Name = "Notas")]
+    public string note { get; set; } = string.Empty;
+
+    // Relación con aulas
+    public ICollection<Classroom> classrooms { get; set; } = new List<Classroom>();
 }
