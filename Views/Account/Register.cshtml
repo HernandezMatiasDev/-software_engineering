@@ -1,0 +1,69 @@
+﻿@model SuMejorPeso.ViewModels.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Registrar Cuenta";
+    Layout = "_LayoutLogin"; // (Usaremos el mismo Layout simple)
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <form asp-action="Register" method="post">
+            <h1 class="text-center">Crear Cuenta (Miembro)</h1>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                        <input asp-for="Name" class="form-control" />
+                        <label asp-for="Name"></label>
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                        <input asp-for="LastName" class="form-control" />
+                        <label asp-for="LastName"></label>
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Email" class="form-control" />
+                <label asp-for="Email"></label>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="UserName" class="form-control" />
+                <label asp-for="UserName"></label>
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Password" type="password" class="form-control" />
+                <label asp-for="Password"></label>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="ConfirmPassword" type="password" class="form-control" />
+                <label asp-for="ConfirmPassword"></label>
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            
+            <button type="submit" class="w-100 btn btn-lg btn-success">Crear Cuenta</button>
+
+            <div class="text-center mt-3">
+                <p>
+                    <a asp-action="Login">Ya tengo una cuenta</a>
+                </p>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

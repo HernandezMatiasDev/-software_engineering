@@ -21,37 +21,20 @@ public class GymContext : DbContext
     public DbSet<Specialty> Specialty { get; set; }
     public DbSet<TypeMembreship> TypeMembreship { get; set; }
     public DbSet<User> User { get; set; }
-
+    public DbSet<Branch> Branch { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         // -------------------------------------------------------------
-        // IDs automáticos en jerarquías TPC
-        // ----------------------------------------------------------
+        // 1. JERARQUÍA DE PERSONAS (Person -> Member, Coach)
+        // (Tu configuración para Member y Coach ya seguía este patrón)
+        // -------------------------------------------------------------
 
-        modelBuilder.Entity<BaseRecord>()
-            .Property(br => br.id)
-            .ValueGeneratedOnAdd();
-
-        modelBuilder.Entity<Schedule>()
-            .Property(s => s.id)
-            .ValueGeneratedOnAdd();
-
-
-        // añadirndo autoincremento en las id hijas
-
+        modelBuilder.Entity<Coach>().ToTable("Coaches");
         modelBuilder.Entity<Coach>()
             .Property(c => c.id)
             .ValueGeneratedOnAdd();
-
-        modelBuilder.Entity<ScheduleClassroom>()
-            .Property(sc => sc.id)
-            .ValueGeneratedOnAdd();
-
-        modelBuilder.Entity<ScheduleCoach>()
-            .Property(sc => sc.id)
-            .ValueGeneratedOnAdd();
-
+        
         modelBuilder.Entity<Member>(entity =>
         {
             entity.ToTable("Members"); // nombre de la tabla
@@ -62,69 +45,88 @@ public class GymContext : DbContext
         });
 
         // -------------------------------------------------------------
-        // 1. JERARQUÍA DE PERSONAS (Person -> Member, Coach)
-        // No se creará la tabla 'Person'. Cada derivada tendrá sus propias columnas.
-        // -------------------------------------------------------------
-
-        // Mapeamos las clases concretas a sus nombres de tabla deseados
-        modelBuilder.Entity<Coach>().ToTable("Coaches");
-        
-        // -------------------------------------------------------------
         // 2. JERARQUÍA DE REGISTROS (BaseRecord -> License, Membership)
-        // No se creará la tabla 'BaseRecord'.
+        // (¡SE ELIMINÓ LA CONFIGURACIÓN TPC DE 'BaseRecord'!)
+        // Ahora configuramos cada hija por separado:
         // -------------------------------------------------------------
-        modelBuilder.Entity<BaseRecord>()
-            .HasKey(br => br.id); // Esencial para TPC
 
-        modelBuilder.Entity<BaseRecord>()
-            .UseTpcMappingStrategy();
+        modelBuilder.Entity<License>(entity =>
+        {
+            entity.ToTable("Licenses");
+            entity.HasKey(l => l.id); // Define la clave primaria en la hija
+            entity.Property(l => l.id)
+                .ValueGeneratedOnAdd()
+                .UseMySqlIdentityColumn();
+        });
 
-        // Mapeamos las clases concretas a sus nombres de tabla
-        modelBuilder.Entity<License>().ToTable("Licenses");
-        modelBuilder.Entity<Membership>().ToTable("Memberships");
+        modelBuilder.Entity<Membership>(entity =>
+        {
+            entity.ToTable("Memberships");
+            entity.HasKey(m => m.id); // Define la clave primaria en la hija
+            entity.Property(m => m.id)
+                .ValueGeneratedOnAdd()
+                .UseMySqlIdentityColumn();
+        });
 
         // -------------------------------------------------------------
         // 3. JERARQUÍA DE HORARIOS (Schedule -> ScheduleClassroom, ScheduleCoach)
-        // No se creará la tabla 'Schedule'.
+        // (¡SE ELIMINÓ LA CONFIGURACIÓN TPC DE 'Schedule'!)
+        // Ahora configuramos cada hija por separado:
         // -------------------------------------------------------------
-        modelBuilder.Entity<Schedule>()
-            .HasKey(s => s.id); // Esencial para TPC
+        
+        modelBuilder.Entity<ScheduleClassroom>(entity =>
+        {
+            entity.ToTable("ScheduleClassrooms");
+            entity.HasKey(s => s.id); // Define la clave primaria en la hija
+            entity.Property(s => s.id)
+                .ValueGeneratedOnAdd()
+                .UseMySqlIdentityColumn();
+        });
 
-        modelBuilder.Entity<Schedule>()
-            .UseTpcMappingStrategy();
-
-        // Mapeamos las clases concretas a sus nombres de tabla
-        modelBuilder.Entity<ScheduleClassroom>().ToTable("ScheduleClassrooms");
-        modelBuilder.Entity<ScheduleCoach>().ToTable("ScheduleCoaches");
-
+        modelBuilder.Entity<ScheduleCoach>(entity =>
+        {
+            entity.ToTable("ScheduleCoaches");
+            entity.HasKey(s => s.id); // Define la clave primaria en la hija
+            entity.Property(s => s.id)
+                .ValueGeneratedOnAdd()
+                .UseMySqlIdentityColumn();
+        });
+        
         // -------------------------------------------------------------
-        // 4. CONFIGURACIÓN DE RELACIONES N:M (Si fuera necesario ajustar)
-        // EF Core mapea automáticamente las relaciones simples de N:M.
-        // Ejemplo: Classroom tiene ICollection<Coach> coaches, y Coach tiene ICollection<Classroom> classrooms.
-        // Para cambiar el nombre de la tabla de unión (ej: de CoachClassroom a ClassroomInstructors):
-        // modelBuilder.Entity<Classroom>()
-        //     .HasMany(c => c.coaches)
-        //     .WithMany(c => c.classrooms) // Si Classroom tiene la propiedad classrooms
-        //     .UsingEntity(j => j.ToTable("ClassroomInstructors")); 
+        // (El resto de tu código de relaciones estaba perfecto y no cambia)
+        // -------------------------------------------------------------
 
-        // Como tus modelos Classroom y Coach no tienen la colección cruzada (el modelo Classroom sí la tiene pero el modelo Coach no la tiene), 
-        // EF Core puede necesitar ayuda si quieres una relación N:M bidireccional, o puedes dejarlo como 1:N (uno-a-muchos). 
-        // Si quieres N:M (Múltiples coaches en Múltiples clases):
-        
-        // Relación N:M entre Classroom y Coach (asumiendo que Coach tiene ICollection<Classroom> classrooms):
-        // Nota: Asegúrate que la propiedad esté en ambos lados para que EF Core sepa que es una relación N:M
-        /*
-        modelBuilder.Entity<Classroom>()
-            .HasMany(c => c.coaches)
-            .WithMany(ch => ch.classrooms) // Asumiendo que Coach.cs tiene: public ICollection<Classroom> classrooms
-            .UsingEntity(j => j.ToTable("ClassroomCoach"));
-        */
-        
-        // Relación N:M entre Classroom y Member:
+        // 4. CONFIGURACIÓN DE RELACIONES N:M (Existentes)
         modelBuilder.Entity<Classroom>()
             .HasMany(c => c.members)
-            .WithMany(m => m.classrooms) // Asumiendo que Member.cs tiene: public ICollection<Classroom> classrooms
+            .WithMany(m => m.classrooms) 
             .UsingEntity(j => j.ToTable("ClassroomMembers"));
 
+        
+        // 5. NUEVA CONFIGURACIÓN DE SUCURSALES (Branch)
+        modelBuilder.Entity<Coach>()
+            .HasOne(coach => coach.branch)
+            .WithMany(branch => branch.coaches)
+            .HasForeignKey(coach => coach.branchId)
+            .IsRequired(); 
+
+        modelBuilder.Entity<Classroom>()
+            .HasOne(classroom => classroom.branch)
+            .WithMany(branch => branch.classrooms)
+            .HasForeignKey(classroom => classroom.branchId)
+            .IsRequired();
+
+        modelBuilder.Entity<User>()
+            .HasOne(user => user.branch)
+            .WithMany(branch => branch.staff)
+            .HasForeignKey(user => user.branchId)
+            .IsRequired(false);
+
+
+        // 6. NUEVA CONFIGURACIÓN N:M (Classroom <-> Coach)
+        modelBuilder.Entity<Classroom>()
+            .HasMany(c => c.coaches)
+            .WithMany(c => c.classrooms)
+            .UsingEntity(j => j.ToTable("ClassroomCoaches"));
     }
 }

@@ -1,0 +1,18 @@
+﻿@model SuMejorPeso.Models.TypeMembreship
+
+@{
+    ViewData["Title"] = "Reactivar Membresía";
+}
+
+<h1>Reactivar Tipo de Membresía</h1>
+
+<h4>El nombre que ingresó corresponde a un plan inactivo: @Model.name.</h4>
+<p>
+    ¿Desea reactivarlo para que pueda ser asignado a nuevos miembros?
+</p>
+<hr />
+<form asp-action="Reactivate" method="post">
+    <input type="hidden" asp-for="id" />
+    <button type="submit" class="btn btn-success">Sí, Reactivar</button>
+    <a asp-action="Index" class="btn btn-secondary">No, Volver</a>
+</form>

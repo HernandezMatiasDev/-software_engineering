@@ -12,9 +12,19 @@
     <tr><th>Teléfono</th><td>@Model.phone</td></tr>
     <tr><th>Email</th><td>@Model.email</td></tr>
     <tr><th>Dirección</th><td>@Model.direction</td></tr>
-    <tr><th>Activo</th><td>@(Model.state ? "Sí" : "No")</td></tr>
+    <tr><th>Activo</th><td>@(Model.active ? "Sí" : "No")</td></tr>
     <tr><th>Notas</th><td>@Model.note</td></tr>
 </table>
 
-<a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.id">Editar</a>
-<a class="btn btn-secondary" asp-action="Index">Volver</a>
+@* 1. Condicional: Mostrar 'Editar' solo si el miembro está activo *@
+@if (Model.active)
+{
+    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.id">Editar</a>
+}
+
+@* 2. Condicional: El botón 'Volver' regresa a Index (activos) o Inactive (inactivos) *@
+@{
+    // Si el miembro está activo, la acción es "Index". Si está inactivo, la acción es "Inactive".
+    var backAction = Model.active ? "Index" : "Inactive";
+}
+<a class="btn btn-secondary" asp-action="@backAction">Volver</a>

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<SuMejorPeso.Models.Coach>
+
+@{
+    ViewData["Title"] = "Profesores Inactivos";
+}
+
+<h1>Profesores Inactivos</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">➕ Nuevo Profesor</a>
+    <a class="btn btn-success" asp-action="Index">✅ Ver Activos</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre Completo</th>
+            <th>DNI</th>
+            <th>Email</th>
+            <th>Login (Usuario)</th>
+            <th>Sede</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@item.name @item.lastName</td>
+        <td>@item.dni</td>
+        <td>@item.email</td>
+        <td>@(item.user?.userName ?? "N/A")</td>
+        <td>@(item.branch?.name ?? "N/A")</td>
+        <td>
+            <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.id">Ver</a>
+            <a class="btn btn-success btn-sm" asp-action="ReactivateConfirmation" asp-route-id="@item.id">Reactivar</a>
+        </td>
+    </tr>
+}   
+    </tbody>
+</table>

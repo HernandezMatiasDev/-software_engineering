@@ -1,0 +1,16 @@
+﻿@model SuMejorPeso.Models.User
+
+@{
+    ViewData["Title"] = "Desactivar Usuario";
+}
+
+<h1>Desactivar Usuario</h1>
+
+<h4>¿Seguro que desea desactivar al usuario @Model.userName?</h4>
+<p>El usuario no podrá iniciar sesión y perderá acceso al sistema, pero su historial se mantendrá.</p>
+<hr />
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="id" />
+    <button type="submit" class="btn btn-danger">Sí, Desactivar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

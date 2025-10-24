@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SuMejorPeso.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class baseInited : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -36,14 +36,36 @@ namespace SuMejorPeso.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "Branch",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    name = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    address = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    phone = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    active = table.Column<bool>(type: "tinyint(1)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Branch", x => x.id);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "Licenses",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    barcode = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    active = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     startDate = table.Column<DateOnly>(type: "date", nullable: false),
-                    endDate = table.Column<DateOnly>(type: "date", nullable: false),
-                    barcode = table.Column<int>(type: "int", nullable: false),
-                    state = table.Column<bool>(type: "tinyint(1)", nullable: false)
+                    endDate = table.Column<DateOnly>(type: "date", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -96,11 +118,45 @@ namespace SuMejorPeso.Migrations
                     description = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     daysDuration = table.Column<int>(type: "int", nullable: false),
-                    price = table.Column<float>(type: "float", nullable: false)
+                    price = table.Column<float>(type: "float", nullable: false),
+                    active = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_TypeMembreship", x => x.id);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Classrooms",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    actionid = table.Column<int>(type: "int", nullable: false),
+                    name = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    description = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    active = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    limitedPlace = table.Column<int>(type: "int", nullable: false),
+                    branchId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Classrooms", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_Classrooms_Action_actionid",
+                        column: x => x.actionid,
+                        principalTable: "Action",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Classrooms_Branch_branchId",
+                        column: x => x.branchId,
+                        principalTable: "Branch",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -116,8 +172,7 @@ namespace SuMejorPeso.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     salt = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    rol = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Role = table.Column<int>(type: "int", nullable: false),
                     name = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     lastName = table.Column<string>(type: "longtext", nullable: false)
@@ -125,36 +180,17 @@ namespace SuMejorPeso.Migrations
                     email = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     active = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    lastAccess = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                    lastAccess = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    branchId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_User", x => x.id);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "Classrooms",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    actionid = table.Column<int>(type: "int", nullable: false),
-                    name = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    description = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    limitedPlace = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Classrooms", x => x.id);
                     table.ForeignKey(
-                        name: "FK_Classrooms_Action_actionid",
-                        column: x => x.actionid,
-                        principalTable: "Action",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
+                        name: "FK_User_Branch_branchId",
+                        column: x => x.branchId,
+                        principalTable: "Branch",
+                        principalColumn: "id");
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -162,15 +198,17 @@ namespace SuMejorPeso.Migrations
                 name: "Memberships",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    startDate = table.Column<DateOnly>(type: "date", nullable: false),
-                    endDate = table.Column<DateOnly>(type: "date", nullable: false),
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     typeid = table.Column<int>(type: "int", nullable: false),
                     state = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    active = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     pricePaid = table.Column<float>(type: "float", nullable: false),
                     debt = table.Column<float>(type: "float", nullable: false),
-                    discount = table.Column<float>(type: "float", nullable: false)
+                    discount = table.Column<float>(type: "float", nullable: false),
+                    startDate = table.Column<DateOnly>(type: "date", nullable: false),
+                    endDate = table.Column<DateOnly>(type: "date", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -179,6 +217,30 @@ namespace SuMejorPeso.Migrations
                         name: "FK_Memberships_TypeMembreship_typeid",
                         column: x => x.typeid,
                         principalTable: "TypeMembreship",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "ScheduleClassrooms",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    classroomId = table.Column<int>(type: "int", nullable: false),
+                    dayWeek = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    startTime = table.Column<TimeSpan>(type: "time(6)", nullable: false),
+                    endTime = table.Column<TimeSpan>(type: "time(6)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ScheduleClassrooms", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_ScheduleClassrooms_Classrooms_classroomId",
+                        column: x => x.classroomId,
+                        principalTable: "Classrooms",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -214,6 +276,8 @@ namespace SuMejorPeso.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     state = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    active = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    branchId = table.Column<int>(type: "int", nullable: false),
                     name = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     lastName = table.Column<string>(type: "longtext", nullable: false)
@@ -229,33 +293,16 @@ namespace SuMejorPeso.Migrations
                 {
                     table.PrimaryKey("PK_Coaches", x => x.id);
                     table.ForeignKey(
+                        name: "FK_Coaches_Branch_branchId",
+                        column: x => x.branchId,
+                        principalTable: "Branch",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_Coaches_User_userId",
                         column: x => x.userId,
                         principalTable: "User",
                         principalColumn: "id");
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "ScheduleClassrooms",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    dayWeek = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    startTime = table.Column<TimeSpan>(type: "time(6)", nullable: false),
-                    endTime = table.Column<TimeSpan>(type: "time(6)", nullable: false),
-                    classroomId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ScheduleClassrooms", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_ScheduleClassrooms_Classrooms_classroomId",
-                        column: x => x.classroomId,
-                        principalTable: "Classrooms",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -270,7 +317,7 @@ namespace SuMejorPeso.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     gender = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    state = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    active = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     licenseId = table.Column<int>(type: "int", nullable: true),
                     membershipId = table.Column<int>(type: "int", nullable: true),
                     note = table.Column<string>(type: "longtext", nullable: false)
@@ -308,7 +355,7 @@ namespace SuMejorPeso.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "ClassroomCoach",
+                name: "ClassroomCoaches",
                 columns: table => new
                 {
                     classroomsid = table.Column<int>(type: "int", nullable: false),
@@ -316,15 +363,15 @@ namespace SuMejorPeso.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ClassroomCoach", x => new { x.classroomsid, x.coachesid });
+                    table.PrimaryKey("PK_ClassroomCoaches", x => new { x.classroomsid, x.coachesid });
                     table.ForeignKey(
-                        name: "FK_ClassroomCoach_Classrooms_classroomsid",
+                        name: "FK_ClassroomCoaches_Classrooms_classroomsid",
                         column: x => x.classroomsid,
                         principalTable: "Classrooms",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ClassroomCoach_Coaches_coachesid",
+                        name: "FK_ClassroomCoaches_Coaches_coachesid",
                         column: x => x.coachesid,
                         principalTable: "Coaches",
                         principalColumn: "id",
@@ -361,12 +408,13 @@ namespace SuMejorPeso.Migrations
                 name: "ScheduleCoaches",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    coachId = table.Column<int>(type: "int", nullable: false),
                     dayWeek = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     startTime = table.Column<TimeSpan>(type: "time(6)", nullable: false),
-                    endTime = table.Column<TimeSpan>(type: "time(6)", nullable: false),
-                    coachId = table.Column<int>(type: "int", nullable: false)
+                    endTime = table.Column<TimeSpan>(type: "time(6)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -437,8 +485,8 @@ namespace SuMejorPeso.Migrations
                 column: "Memberid");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ClassroomCoach_coachesid",
-                table: "ClassroomCoach",
+                name: "IX_ClassroomCoaches_coachesid",
+                table: "ClassroomCoaches",
                 column: "coachesid");
 
             migrationBuilder.CreateIndex(
@@ -450,6 +498,16 @@ namespace SuMejorPeso.Migrations
                 name: "IX_Classrooms_actionid",
                 table: "Classrooms",
                 column: "actionid");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Classrooms_branchId",
+                table: "Classrooms",
+                column: "branchId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Coaches_branchId",
+                table: "Coaches",
+                column: "branchId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Coaches_userId",
@@ -492,6 +550,11 @@ namespace SuMejorPeso.Migrations
                 name: "IX_ScheduleCoaches_coachId",
                 table: "ScheduleCoaches",
                 column: "coachId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_User_branchId",
+                table: "User",
+                column: "branchId");
         }
 
         /// <inheritdoc />
@@ -504,7 +567,7 @@ namespace SuMejorPeso.Migrations
                 name: "Attendance");
 
             migrationBuilder.DropTable(
-                name: "ClassroomCoach");
+                name: "ClassroomCoaches");
 
             migrationBuilder.DropTable(
                 name: "ClassroomMembers");
@@ -547,6 +610,9 @@ namespace SuMejorPeso.Migrations
 
             migrationBuilder.DropTable(
                 name: "TypeMembreship");
+
+            migrationBuilder.DropTable(
+                name: "Branch");
         }
     }
 }

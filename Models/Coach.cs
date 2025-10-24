@@ -11,7 +11,9 @@ using System.ComponentModel.DataAnnotations.Schema;
     
     public ICollection<ScheduleCoach> schedule { get; set; } = new List<ScheduleCoach>();
     public required string state { set; get; }
+    public required bool active { set; get; } = true;
     public ICollection<Classroom> classrooms { get; set; } = new List<Classroom>();
-
+    public required int branchId { get; set; }
+    public required Branch branch { get; set; }
 
 }

@@ -1,0 +1,52 @@
+﻿@model SuMejorPeso.Models.User
+
+@{
+    ViewData["Title"] = "Detalles de Usuario";
+}
+
+<h1>Detalles de @Model.userName</h1>
+
+<table class="table table-bordered col-md-8">
+    <tr>
+        <th style="width: 20%;">ID</th>
+        <td>@Model.id</td>
+    </tr>
+    <tr>
+        <th>Nombre de Usuario</th>
+        <td>@Model.userName</td>
+    </tr>
+    <tr>
+        <th>Nombre Completo</th>
+        <td>@Model.name @Model.lastName</td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td>@Model.email</td>
+    </tr>
+    <tr>
+        <th>Rol</th>
+        <td>@Model.Role</td>
+    </tr>
+    <tr>
+        <th>Sede Asignada</th>
+        <td>@(Model.branch?.name ?? "N/A")</td> </tr>
+    <tr>
+        <th>Último Acceso</th>
+        <td>@Model.lastAccess.ToLocalTime()</td>
+    </tr>
+    <tr>
+        <th>Activo</th>
+        <td>@(Model.active ? "Sí" : "No")</td>
+    </tr>
+</table>
+<hr />
+
+@if (Model.active)
+{
+    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.id">Editar</a>
+}
+
+@{
+    var backAction = Model.active ? "Index" : "Inactive";
+}
+<a class="btn btn-secondary" asp-action="@backAction">Volver</a>

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<SuMejorPeso.Models.TypeMembreship>
+
+@{
+    ViewData["Title"] = "Tipos de Membresía";
+}
+
+<h1>Tipos de Membresía</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">➕ Nuevo Tipo</a>
+    <a class="btn btn-info" asp-action="Inactive">👥 Ver Inactivos</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Duración (Días)</th>
+            <th>Precio</th>
+            <th>Activa</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.name)</td>
+        <td>@Html.DisplayFor(modelItem => item.description)</td>
+        <td>@Html.DisplayFor(modelItem => item.daysDuration)</td>
+        <td>$@Html.DisplayFor(modelItem => item.price)</td>
+        <td>@(item.active ? "Sí" : "No")</td>
+        <td>
+            <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.id">Ver</a>
+            <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@item.id">Editar</a>
+            <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.id">Desactivar</a>
+        </td>
+    </tr>
+}
+    </tbody>
+</table>

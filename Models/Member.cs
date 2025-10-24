@@ -21,7 +21,7 @@ public class Member : Person
     public string gender { get; set; } = string.Empty;
 
     [Display(Name = "Activo")]
-    public bool state { get; set; } = true;
+    public bool active { get; set; } = true;
 
     // Relación con licencia (opcional)
     [Display(Name = "Licencia")]

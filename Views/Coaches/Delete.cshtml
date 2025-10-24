@@ -1,0 +1,21 @@
+﻿@model SuMejorPeso.Models.Coach
+
+@{
+    ViewData["Title"] = "Desactivar Profesor";
+}
+
+<h1>Desactivar Profesor</h1>
+
+<h4>¿Seguro que desea desactivar a @Model.name @Model.lastName?</h4>
+<p>
+    El profesor ya no podrá ser asignado a nuevas clases y no podrá
+    iniciar sesión (si su usuario también se desactiva), pero su 
+    historial de clases pasadas se mantendrá.
+</p>
+<hr />
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="id" />
+    <button type="submit" class="btn btn-danger">Sí, Desactivar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

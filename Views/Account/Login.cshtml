@@ -1,0 +1,45 @@
+﻿@model SuMejorPeso.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Iniciar Sesión";
+    Layout = "_LayoutLogin"; // (Usaremos un Layout simple sin barra de navegación)
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <section>
+            <form asp-action="Login" method="post">
+                <h1 class="text-center">SuMejorPeso</h1>
+                <h4 class="text-center">Iniciar Sesión</h4>
+                <hr />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                
+                <div class="form-floating mb-3">
+                    <input asp-for="UserName" class="form-control" />
+                    <label asp-for="UserName"></label>
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+                
+                <div class="form-floating mb-3">
+                    <input asp-for="Password" type="password" class="form-control" />
+                    <label asp-for="Password"></label>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                
+                <div>
+                    <button type"submit" class="w-100 btn btn-lg btn-primary">Entrar</button>
+                </div>
+                
+                <div class="text-center mt-3">
+                    <p>
+                        <a asp-action="Register">Crear una cuenta nueva</a>
+                    </p>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

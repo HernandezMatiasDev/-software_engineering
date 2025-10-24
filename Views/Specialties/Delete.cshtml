@@ -1,0 +1,19 @@
+﻿@model SuMejorPeso.Models.Specialty
+
+@{
+    ViewData["Title"] = "Desactivar Especialidad";
+}
+
+<h1>Desactivar Especialidad</h1>
+
+<h4>¿Seguro que desea desactivar la especialidad @Model.name?</h4>
+<p>
+    Esta especialidad ya no se podrá asignar a nuevos profesores.
+    Los profesores que ya la tienen la conservarán en su perfil.
+</p>
+<hr />
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="id" />
+    <button type="submit" class="btn btn-danger">Sí, Desactivar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

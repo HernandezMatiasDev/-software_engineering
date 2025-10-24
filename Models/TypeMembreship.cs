@@ -6,5 +6,6 @@ namespace SuMejorPeso.Models;
     public required string description { set; get; }
     public required int daysDuration { set; get; }
     public required float price { set; get; }
+    public required bool active { get; set; } = true;
 
 }

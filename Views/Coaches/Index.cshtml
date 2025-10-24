@@ -1,0 +1,44 @@
+﻿@model IEnumerable<SuMejorPeso.Models.Coach>
+
+@{
+    ViewData["Title"] = "Profesores Activos";
+}
+
+<h1>Profesores Activos</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">➕ Nuevo Profesor</a>
+    <a class="btn btn-info" asp-action="Inactive">👥 Ver Inactivos</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre Completo</th>
+            <th>DNI</th>
+            <th>Email</th>
+            <th>Login (Usuario)</th>
+            <th>Sede</th>
+            <th>Estado</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.name) @Html.DisplayFor(modelItem => item.lastName)</td>
+        <td>@Html.DisplayFor(modelItem => item.dni)</td>
+        <td>@Html.DisplayFor(modelItem => item.email)</td>
+        <td>@(item.user?.userName ?? "N/A")</td>
+        <td>@(item.branch?.name ?? "N/A")</td>
+        <td>@Html.DisplayFor(modelItem => item.state)</td>
+        <td>
+            <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.id">Ver</a>
+            <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@item.id">Editar</a>
+            <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.id">Desactivar</a>
+        </td>
+    </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,19 @@
+﻿@model SuMejorPeso.Models.Coach
+
+@{
+    ViewData["Title"] = "Reactivar Profesor";
+}
+
+<h1>Reactivar Profesor</h1>
+
+<h4>El DNI o Email que ingresó corresponde a un profesor inactivo: @Model.name @Model.lastName.</h4>
+<p>
+    ¿Desea reactivarlo y usar sus datos existentes?
+</p>
+<hr />
+
+<form asp-action="Reactivate" method="post">
+    <input type="hidden" asp-for="id" />
+    <button type="submit" class="btn btn-success">Sí, Reactivar</button>
+    <a asp-action="Index" class="btn btn-secondary">No, Volver</a>
+</form>

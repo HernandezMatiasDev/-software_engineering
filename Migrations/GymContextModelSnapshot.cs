@@ -34,7 +34,7 @@ namespace SuMejorPeso.Migrations
 
                     b.HasIndex("coachesid");
 
-                    b.ToTable("ClassroomCoach");
+                    b.ToTable("ClassroomCoaches", (string)null);
                 });
 
             modelBuilder.Entity("ClassroomMember", b =>
@@ -141,7 +141,7 @@ namespace SuMejorPeso.Migrations
                     b.ToTable("Attendance");
                 });
 
-            modelBuilder.Entity("SuMejorPeso.Models.BaseRecord", b =>
+            modelBuilder.Entity("SuMejorPeso.Models.Branch", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -149,17 +149,23 @@ namespace SuMejorPeso.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("id"));
 
-                    b.Property<DateOnly>("endDate")
-                        .HasColumnType("date");
+                    b.Property<bool>("active")
+                        .HasColumnType("tinyint(1)");
 
-                    b.Property<DateOnly>("startDate")
-                        .HasColumnType("date");
+                    b.Property<string>("address")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("phone")
+                        .HasColumnType("longtext");
 
                     b.HasKey("id");
 
-                    b.ToTable((string)null);
-
-                    b.UseTpcMappingStrategy();
+                    b.ToTable("Branch");
                 });
 
             modelBuilder.Entity("SuMejorPeso.Models.Classroom", b =>
@@ -171,6 +177,12 @@ namespace SuMejorPeso.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("id"));
 
                     b.Property<int>("actionid")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("active")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<int>("branchId")
                         .HasColumnType("int");
 
                     b.Property<string>("description")
@@ -188,6 +200,8 @@ namespace SuMejorPeso.Migrations
 
                     b.HasIndex("actionid");
 
+                    b.HasIndex("branchId");
+
                     b.ToTable("Classrooms");
                 });
 
@@ -198,6 +212,12 @@ namespace SuMejorPeso.Migrations
                         .HasColumnType("int");
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<bool>("active")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<int>("branchId")
+                        .HasColumnType("int");
 
                     b.Property<int>("dni")
                         .HasColumnType("int");
@@ -227,9 +247,38 @@ namespace SuMejorPeso.Migrations
 
                     b.HasKey("id");
 
+                    b.HasIndex("branchId");
+
                     b.HasIndex("userId");
 
                     b.ToTable("Coaches", (string)null);
+                });
+
+            modelBuilder.Entity("SuMejorPeso.Models.License", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<bool>("active")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("barcode")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<DateOnly>("endDate")
+                        .HasColumnType("date");
+
+                    b.Property<DateOnly>("startDate")
+                        .HasColumnType("date");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Licenses", (string)null);
                 });
 
             modelBuilder.Entity("SuMejorPeso.Models.Member", b =>
@@ -239,6 +288,9 @@ namespace SuMejorPeso.Migrations
                         .HasColumnType("int");
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<bool>("active")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateOnly>("birthdate")
                         .HasColumnType("date");
@@ -281,9 +333,6 @@ namespace SuMejorPeso.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<bool>("state")
-                        .HasColumnType("tinyint(1)");
-
                     b.Property<int?>("userId")
                         .HasColumnType("int");
 
@@ -298,6 +347,46 @@ namespace SuMejorPeso.Migrations
                     b.HasIndex("userId");
 
                     b.ToTable("Members", (string)null);
+                });
+
+            modelBuilder.Entity("SuMejorPeso.Models.Membership", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<bool>("active")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<float>("debt")
+                        .HasColumnType("float");
+
+                    b.Property<float>("discount")
+                        .HasColumnType("float");
+
+                    b.Property<DateOnly>("endDate")
+                        .HasColumnType("date");
+
+                    b.Property<float>("pricePaid")
+                        .HasColumnType("float");
+
+                    b.Property<DateOnly>("startDate")
+                        .HasColumnType("date");
+
+                    b.Property<string>("state")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("typeid")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("typeid");
+
+                    b.ToTable("Memberships", (string)null);
                 });
 
             modelBuilder.Entity("SuMejorPeso.Models.Pay", b =>
@@ -329,13 +418,16 @@ namespace SuMejorPeso.Migrations
                     b.ToTable("Pay");
                 });
 
-            modelBuilder.Entity("SuMejorPeso.Models.Schedule", b =>
+            modelBuilder.Entity("SuMejorPeso.Models.ScheduleClassroom", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<int>("classroomId")
+                        .HasColumnType("int");
 
                     b.Property<string>("dayWeek")
                         .IsRequired()
@@ -349,9 +441,37 @@ namespace SuMejorPeso.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable((string)null);
+                    b.HasIndex("classroomId");
 
-                    b.UseTpcMappingStrategy();
+                    b.ToTable("ScheduleClassrooms", (string)null);
+                });
+
+            modelBuilder.Entity("SuMejorPeso.Models.ScheduleCoach", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<int>("coachId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("dayWeek")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<TimeSpan>("endTime")
+                        .HasColumnType("time(6)");
+
+                    b.Property<TimeSpan>("startTime")
+                        .HasColumnType("time(6)");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("coachId");
+
+                    b.ToTable("ScheduleCoaches", (string)null);
                 });
 
             modelBuilder.Entity("SuMejorPeso.Models.Specialty", b =>
@@ -361,6 +481,9 @@ namespace SuMejorPeso.Migrations
                         .HasColumnType("int");
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<bool>("active")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("name")
                         .IsRequired()
@@ -378,6 +501,9 @@ namespace SuMejorPeso.Migrations
                         .HasColumnType("int");
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<bool>("active")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<int>("daysDuration")
                         .HasColumnType("int");
@@ -406,8 +532,14 @@ namespace SuMejorPeso.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("id"));
 
+                    b.Property<int>("Role")
+                        .HasColumnType("int");
+
                     b.Property<bool>("active")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<int?>("branchId")
+                        .HasColumnType("int");
 
                     b.Property<string>("email")
                         .IsRequired()
@@ -428,10 +560,6 @@ namespace SuMejorPeso.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("rol")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.Property<string>("salt")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -442,69 +570,9 @@ namespace SuMejorPeso.Migrations
 
                     b.HasKey("id");
 
+                    b.HasIndex("branchId");
+
                     b.ToTable("User");
-                });
-
-            modelBuilder.Entity("SuMejorPeso.Models.License", b =>
-                {
-                    b.HasBaseType("SuMejorPeso.Models.BaseRecord");
-
-                    b.Property<int>("barcode")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("state")
-                        .HasColumnType("tinyint(1)");
-
-                    b.ToTable("Licenses", (string)null);
-                });
-
-            modelBuilder.Entity("SuMejorPeso.Models.Membership", b =>
-                {
-                    b.HasBaseType("SuMejorPeso.Models.BaseRecord");
-
-                    b.Property<float>("debt")
-                        .HasColumnType("float");
-
-                    b.Property<float>("discount")
-                        .HasColumnType("float");
-
-                    b.Property<float>("pricePaid")
-                        .HasColumnType("float");
-
-                    b.Property<string>("state")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("typeid")
-                        .HasColumnType("int");
-
-                    b.HasIndex("typeid");
-
-                    b.ToTable("Memberships", (string)null);
-                });
-
-            modelBuilder.Entity("SuMejorPeso.Models.ScheduleClassroom", b =>
-                {
-                    b.HasBaseType("SuMejorPeso.Models.Schedule");
-
-                    b.Property<int>("classroomId")
-                        .HasColumnType("int");
-
-                    b.HasIndex("classroomId");
-
-                    b.ToTable("ScheduleClassrooms", (string)null);
-                });
-
-            modelBuilder.Entity("SuMejorPeso.Models.ScheduleCoach", b =>
-                {
-                    b.HasBaseType("SuMejorPeso.Models.Schedule");
-
-                    b.Property<int>("coachId")
-                        .HasColumnType("int");
-
-                    b.HasIndex("coachId");
-
-                    b.ToTable("ScheduleCoaches", (string)null);
                 });
 
             modelBuilder.Entity("ClassroomCoach", b =>
@@ -578,14 +646,30 @@ namespace SuMejorPeso.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("SuMejorPeso.Models.Branch", "branch")
+                        .WithMany("classrooms")
+                        .HasForeignKey("branchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("action");
+
+                    b.Navigation("branch");
                 });
 
             modelBuilder.Entity("SuMejorPeso.Models.Coach", b =>
                 {
+                    b.HasOne("SuMejorPeso.Models.Branch", "branch")
+                        .WithMany("coaches")
+                        .HasForeignKey("branchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("SuMejorPeso.Models.User", "user")
                         .WithMany()
                         .HasForeignKey("userId");
+
+                    b.Navigation("branch");
 
                     b.Navigation("user");
                 });
@@ -644,6 +728,24 @@ namespace SuMejorPeso.Migrations
                     b.Navigation("coach");
                 });
 
+            modelBuilder.Entity("SuMejorPeso.Models.User", b =>
+                {
+                    b.HasOne("SuMejorPeso.Models.Branch", "branch")
+                        .WithMany("staff")
+                        .HasForeignKey("branchId");
+
+                    b.Navigation("branch");
+                });
+
+            modelBuilder.Entity("SuMejorPeso.Models.Branch", b =>
+                {
+                    b.Navigation("classrooms");
+
+                    b.Navigation("coaches");
+
+                    b.Navigation("staff");
+                });
+
             modelBuilder.Entity("SuMejorPeso.Models.Classroom", b =>
                 {
                     b.Navigation("schedule");
@@ -654,15 +756,15 @@ namespace SuMejorPeso.Migrations
                     b.Navigation("schedule");
                 });
 
-            modelBuilder.Entity("SuMejorPeso.Models.Member", b =>
-                {
-                    b.Navigation("attendance");
-                });
-
             modelBuilder.Entity("SuMejorPeso.Models.License", b =>
                 {
                     b.Navigation("member")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("SuMejorPeso.Models.Member", b =>
+                {
+                    b.Navigation("attendance");
                 });
 
             modelBuilder.Entity("SuMejorPeso.Models.Membership", b =>

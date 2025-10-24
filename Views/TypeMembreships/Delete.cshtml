@@ -1,0 +1,19 @@
+﻿@model SuMejorPeso.Models.TypeMembreship
+
+@{
+    ViewData["Title"] = "Desactivar Membresía";
+}
+
+<h1>Desactivar Tipo de Membresía</h1>
+
+<h4>¿Seguro que desea desactivar el plan @Model.name?</h4>
+<p>
+    El plan ya no podrá ser asignado a nuevos miembros, pero los miembros
+    antiguos que lo tengan conservarán su historial.
+</p>
+<hr />
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="id" />
+    <button type="submit" class="btn btn-danger">Sí, Desactivar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

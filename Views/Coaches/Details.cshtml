@@ -1,0 +1,51 @@
+﻿@model SuMejorPeso.Models.Coach
+
+@{
+    ViewData["Title"] = "Detalles del Profesor";
+}
+
+<h1>Detalles de @Model.name @Model.lastName</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <table class="table table-bordered">
+            <tr><th style="width: 30%;">ID</th><td>@Model.id</td></tr>
+            <tr><th>Nombre</th><td>@Model.name</td></tr>
+            <tr><th>Apellido</th><td>@Model.lastName</td></tr>
+            <tr><th>DNI</th><td>@Model.dni</td></tr>
+            <tr><th>Email</th><td>@Model.email</td></tr>
+            <tr><th>Teléfono</th><td>@Model.phone</td></tr>
+            <tr><th>Estado</th><td>@Model.state</td></tr>
+            <tr><th>Activo</th><td>@(Model.active ? "Sí" : "No")</td></tr>
+            <tr><th>Sede</th><td>@(Model.branch?.name ?? "N/A")</td></tr>
+            <tr><th>Cuenta (User)</th><td>@(Model.user?.userName ?? "N/A")</td></tr>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <h4>Especialidades Asignadas</h4>
+        @if (Model.specialties.Any())
+        {
+            <ul class="list-group">
+                @foreach (var specialty in Model.specialties)
+                {
+                    <li class="list-group-item">@specialty.name</li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>(No tiene especialidades asignadas)</p>
+        }
+    </div>
+</div>
+<hr />
+
+@if (Model.active)
+{
+    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.id">Editar</a>
+}
+
+@{
+    var backAction = Model.active ? "Index" : "Inactive";
+}
+<a class="btn btn-secondary" asp-action="@backAction">Volver</a>

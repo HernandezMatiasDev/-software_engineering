@@ -1,0 +1,41 @@
+﻿@model SuMejorPeso.Models.Member
+
+@{
+    ViewData["Title"] = "Mi Perfil";
+}
+
+<h1>Mi Perfil</h1>
+<p>Hola, @Model.name. Aquí están los detalles de tu cuenta.</p>
+
+<div class="row">
+    <div class="col-md-6">
+        <h4>Datos Personales</h4>
+        <table class="table">
+            <tr><th>DNI</th><td>@Model.dni</td></tr>
+            <tr><th>Teléfono</th><td>@Model.phone</td></tr>
+            <tr><th>Email</th><td>@Model.email</td></tr>
+            <tr><th>Fecha de Nac.</th><td>@Model.birthdate.ToShortDateString()</td></tr>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <h4>Mi Licencia y Membresía</h4>
+        <table class="table">
+            <tr>
+                <th>Licencia (Código de Barras)</th>
+                <td>@Model.license?.barcode</td>
+            </tr>
+            <tr>
+                <th>Plan Actual</th>
+                <td>@(Model.membership?.type.name ?? "Ninguno")</td>
+            </tr>
+            <tr>
+                <th>Vencimiento</th>
+                <td>@(Model.membership?.endDate.ToShortDateString() ?? "N/A")</td>
+            </tr>
+            <tr>
+                <th>Estado</th>
+                <td>@(Model.membership?.state ?? "N/A")</td>
+            </tr>
+        </table>
+    </div>
+</div>
