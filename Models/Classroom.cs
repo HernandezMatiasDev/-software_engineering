@@ -3,7 +3,8 @@ namespace SuMejorPeso.Models;
 public class Classroom
 {
     public int id { set; get; }
-    public required Action action { set; get; }
+    public required Assignment assignment { set; get; }
+    public required int assignmentId { set; get; }
     public required string name { set; get; }
     public required string description { set; get; }
     public required bool active { set; get; } = true;

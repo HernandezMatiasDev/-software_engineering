@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace SuMejorPeso.Controllers
 {
-    [Authorize(Roles = "SuperUser")]
+    [Authorize(Roles = "SuperUser, Manager, Administrator")]
     public class CoachesController : Controller
     {
         private readonly GymContext _context;

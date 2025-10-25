@@ -11,7 +11,7 @@ namespace SuMejorPeso.Controllers
     /// Controlador encargado de las operaciones CRUD (Alta, Baja y Modificación)
     /// de los Usuarios (personal) del sistema.
     /// </summary>
-    [Authorize(Roles = "SuperUser")]
+    [Authorize(Roles = "SuperUser, Manager, Administrator")]
     public class UsersController : Controller
     {
         private readonly GymContext _context;

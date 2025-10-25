@@ -156,7 +156,6 @@ namespace SuMejorPeso.Controllers
                 lastName = model.LastName,
                 passwordHash = hash,
                 salt = salt,
-                Role = UserRole.member, // <-- REQUISITO: Rol 'member' automático
                 active = true,
                 lastAccess = DateTime.UtcNow,
                 branchId = null // Los miembros no tienen sede asignada

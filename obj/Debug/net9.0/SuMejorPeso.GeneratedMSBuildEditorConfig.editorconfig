@@ -40,6 +40,34 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxfTGF5b3V0TG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Assignments/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWdubWVudHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Assignments/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWdubWVudHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Assignments/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWdubWVudHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Assignments/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWdubWVudHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Assignments/Inactive.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWdubWVudHNcSW5hY3RpdmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Assignments/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWdubWVudHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Assignments/ReactivateConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWdubWVudHNcUmVhY3RpdmF0ZUNvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Branches/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmNoZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -66,6 +94,58 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Branches/ReactivateConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmNoZXNcUmVhY3RpdmF0ZUNvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Browse/Branches.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJvd3NlXEJyYW5jaGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Browse/Classes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJvd3NlXENsYXNzZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Browse/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJvd3NlXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Browse/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJvd3NlXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Browse/Inactive.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJvd3NlXEluYWN0aXZlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Browse/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJvd3NlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Classrooms/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc3Nyb29tc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Classrooms/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc3Nyb29tc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Classrooms/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc3Nyb29tc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Classrooms/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc3Nyb29tc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Classrooms/Inactive.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc3Nyb29tc1xJbmFjdGl2ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Classrooms/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc3Nyb29tc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Classrooms/ReactivateConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc3Nyb29tc1xSZWFjdGl2YXRlQ29uZmlybWF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Coaches/Create.cshtml]
@@ -96,12 +176,32 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29hY2hlc1xSZWFjdGl2YXRlQ29uZmlybWF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Home/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBY2Nlc3NEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/MembershipStore/ConfirmPurchase.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc2hpcFN0b3JlXENvbmZpcm1QdXJjaGFzZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/MembershipStore/EnterMemberDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc2hpcFN0b3JlXEVudGVyTWVtYmVyRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/MembershipStore/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc2hpcFN0b3JlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/MembershipStore/PurchaseError.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc2hpcFN0b3JlXFB1cmNoYXNlRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Members/Create.cshtml]

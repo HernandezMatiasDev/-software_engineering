@@ -1,0 +1,22 @@
+﻿@model IEnumerable<SuMejorPeso.Models.TypeMembreship>
+
+@{ ViewData["Title"] = "Comprar Membresía"; }
+
+<h1>Planes de Membresía Disponibles</h1>
+
+<div class="row">
+    @foreach (var plan in Model)
+    {
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@plan.name</h5>
+                    <p class="card-text">@plan.description</p>
+                    <p><strong>Duración:</strong> @plan.daysDuration días</p>
+                    <p><strong>Precio:</strong> $@plan.price</p>
+                    <a asp-action="ConfirmPurchase" asp-route-id="@plan.id" class="btn btn-primary">Seleccionar Plan</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

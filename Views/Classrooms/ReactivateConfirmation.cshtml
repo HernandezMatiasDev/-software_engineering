@@ -1,0 +1,19 @@
+﻿@model SuMejorPeso.Models.Classroom
+
+@{
+    ViewData["Title"] = "Reactivar Clase";
+}
+
+<h1>Reactivar Clase</h1>
+
+<h4>El nombre ingresado corresponde a una clase inactiva: @Model.name.</h4>
+<p>
+    ¿Desea reactivarla para que aparezca en los horarios y se puedan
+    inscribir miembros?
+</p>
+<hr />
+<form asp-action="Reactivate" method="post">
+    <input type="hidden" asp-for="id" />
+    <button type="submit" class="btn btn-success">Sí, Reactivar</button>
+    <a asp-action="Index" class="btn btn-secondary">No, Volver</a>
+</form>

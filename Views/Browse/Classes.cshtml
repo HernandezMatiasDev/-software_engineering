@@ -1,0 +1,64 @@
+﻿@model IEnumerable<SuMejorPeso.Models.Classroom>
+@using SuMejorPeso.Models 
+@* --- INICIO: AÑADIR ESTE BLOQUE --- *@
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @TempData["ErrorMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+@* --- FIN: AÑADIR ESTE BLOQUE --- *@
+
+@{ ViewData["Title"] = $"Clases en {ViewBag.BranchName}"; }
+
+<h1>Clases Disponibles en @ViewBag.BranchName</h1>
+<p><a asp-action="Branches">Cambiar de Sede</a></p>
+@if (!Model.Any())
+{
+    <p>No hay clases activas en esta sede por el momento.</p>
+}
+else
+{
+    <div class="row">
+        @foreach (var classroom in Model)
+        {
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">@classroom.name</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">@classroom.assignment.name</h6>
+                        <p class="card-text">@classroom.description</p>
+                        <p><small>Cupo: @classroom.members.Count() / @classroom.limitedPlace</small></p>
+                        <p><small>Profesor(es): @string.Join(", ", classroom.coaches.Select(c => c.name))</small></p>
+                    </div>
+                    <div class="card-footer">
+                        @if (User.IsInRole(UserRole.member.ToString())) //
+                        {
+                            // TODO: Implementar acción de inscripción
+                            <form asp-controller="Classrooms" asp-action="Enroll" method="post">
+                                <input type="hidden" name="classroomId" value="@classroom.id" />
+                                <button type="submit" class="btn btn-sm btn-success" disabled="@(classroom.members.Count() >= classroom.limitedPlace)">
+                                    @(classroom.members.Count() >= classroom.limitedPlace ? "Clase Llena" : "Inscribirse")
+                                </button>
+                            </form>
+                        }
+                        else if (User.IsInRole(UserRole.defaults.ToString())) //
+                        {
+                            <a asp-controller="MembershipStore" asp-action="Index" class="btn btn-sm btn-warning">
+                                Necesitas ser Miembro para inscribirte
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

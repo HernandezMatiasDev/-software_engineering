@@ -1,0 +1,82 @@
+﻿@model SuMejorPeso.Models.Classroom
+
+@{
+    ViewData["Title"] = "Crear Clase";
+    bool isSuperUser = User.IsInRole("SuperUser");
+}
+
+<h1>Crear Nueva Clase</h1>
+<hr />
+
+<form asp-action="Create" method="post">
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Detalles de la Clase</h4>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group mb-3">
+                <label asp-for="name" class="control-label">Nombre de la Clase</label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="description" class="control-label">Descripción</label>
+                <textarea asp-for="description" class="form-control"></textarea>
+                <span asp-validation-for="description" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group mb-3">
+                <label asp-for="limitedPlace" class="control-label">Cupo Máximo</label>
+                <input asp-for="limitedPlace" type="number" class="form-control" />
+                <span asp-validation-for="limitedPlace" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="assignmentId" class="control-label">Actividad</label>
+                <select asp-for="assignmentId" class="form-control" asp-items="ViewBag.ActivityList">
+                     <option value="">-- Seleccionar Actividad --</option>
+                </select>
+                <span asp-validation-for="assignmentId" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group mb-3">
+                <label asp-for="branchId" class="control-label">Sede</label>
+                <select asp-for="branchId" class="form-control" asp-items="ViewBag.BranchList" 
+                        disabled="@(!isSuperUser)"> @if(isSuperUser) { <option value="">-- Seleccionar Sede --</option> }
+                </select>
+                 @if (!isSuperUser) { 
+                    <input type="hidden" asp-for="branchId" /> 
+                 }
+                <span asp-validation-for="branchId" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <h4>Asignaciones</h4>
+             <div class="form-group mb-3">
+                <label class="control-label">Profesores Asignados</label>
+                <select name="selectedCoaches" class="form-control" multiple asp-items="ViewBag.CoachList" style="height: 150px;">
+                </select>
+                <small class="form-text text-muted">Mantenga Ctrl (o Cmd) para seleccionar varios.</small>
+            </div>
+
+            <div class="form-group mb-3">
+                <label class="control-label">Miembros Inscritos</label>
+                 <select name="selectedMembers" class="form-control" multiple asp-items="ViewBag.MemberList" style="height: 150px;">
+                </select>
+                 <small class="form-text text-muted">Mantenga Ctrl (o Cmd) para seleccionar varios.</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group mt-4">
+        <button type="submit" class="btn btn-success">Guardar Clase</button>
+        <a asp-action="Index" class="btn btn-secondary">Volver</a>
+    </div>
+</form>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

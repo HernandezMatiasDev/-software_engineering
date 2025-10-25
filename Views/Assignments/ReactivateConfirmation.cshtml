@@ -1,0 +1,18 @@
+﻿@model SuMejorPeso.Models.Assignment
+
+@{
+    ViewData["Title"] = "Reactivar Actividad";
+}
+
+<h1>Reactivar Actividad</h1>
+
+<h4>El nombre que ingresó corresponde a una actividad inactiva: @Model.name.</h4>
+<p>
+    ¿Desea reactivarla para que pueda ser asignada a nuevas clases?
+</p>
+<hr />
+<form asp-action="Reactivate" method="post">
+    <input type="hidden" asp-for="id" />
+    <button type="submit" class="btn btn-success">Sí, Reactivar</button>
+    <a asp-action="Index" class="btn btn-secondary">No, Volver</a>
+</form>

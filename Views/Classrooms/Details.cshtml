@@ -1,0 +1,59 @@
+﻿@model SuMejorPeso.Models.Classroom
+
+@{
+    ViewData["Title"] = "Detalles de Clase";
+}
+
+<h1>Detalles de @Model.name (@Model.assignment.name)</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <h4>Datos de la Clase</h4>
+        <table class="table table-bordered">
+            <tr><th style="width: 30%;">ID</th><td>@Model.id</td></tr>
+            <tr><th>Nombre</th><td>@Model.name</td></tr>
+            <tr><th>Descripción</th><td>@Model.description</td></tr>
+            <tr><th>Actividad</th><td>@Model.assignment.name</td></tr>
+            <tr><th>Sede</th><td>@Model.branch.name</td></tr>
+            <tr><th>Cupo Máximo</th><td>@Model.limitedPlace</td></tr>
+            <tr><th>Activa</th><td>@(Model.active ? "Sí" : "No")</td></tr>
+        </table>
+    </div>
+    <div class="col-md-3">
+        <h4>Profesores Asignados (@Model.coaches.Count)</h4>
+        @if (Model.coaches.Any())
+        {
+            <ul class="list-group">
+                @foreach (var coach in Model.coaches)
+                {
+                    <li class="list-group-item">@coach.name @coach.lastName</li>
+                }
+            </ul>
+        }
+        else { <p>(Ninguno)</p> }
+    </div>
+     <div class="col-md-3">
+        <h4>Miembros Inscritos (@Model.members.Count)</h4>
+        @if (Model.members.Any())
+        {
+            <ul class="list-group">
+                @foreach (var member in Model.members)
+                {
+                    <li class="list-group-item">@member.name @member.lastName</li>
+                }
+            </ul>
+        }
+         else { <p>(Ninguno)</p> }
+    </div>
+</div>
+<hr />
+
+@if (Model.active)
+{
+    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.id">Editar</a>
+}
+
+@{
+    var backAction = Model.active ? "Index" : "Inactive";
+}
+<a class="btn btn-secondary" asp-action="@backAction">Volver</a>

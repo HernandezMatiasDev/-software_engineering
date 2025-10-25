@@ -1,0 +1,45 @@
+﻿@model SuMejorPeso.Models.Assignment
+
+@{
+    ViewData["Title"] = "Detalles de Actividad";
+}
+
+<h1>Detalles de @Model.name</h1>
+
+<table class="table table-bordered col-md-6">
+    <tr>
+        <th style="width: 25%;">ID</th>
+        <td>@Model.id</td>
+    </tr>
+    <tr>
+        <th>Nombre</th>
+        <td>@Model.name</td>
+    </tr>
+    <tr>
+        <th>Descripción</th>
+        <td>@Model.description</td>
+    </tr>
+    <tr>
+        <th>Duración (Min)</th>
+        <td>@Model.durationMinutes</td>
+    </tr>
+    <tr>
+        <th>Dificultad</th>
+        <td>@Model.difficulty</td>
+    </tr>
+    <tr>
+        <th>Activa</th>
+        <td>@(Model.active ? "Sí" : "No")</td>
+    </tr>
+</table>
+<hr />
+
+@if (Model.active)
+{
+    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.id">Editar</a>
+}
+
+@{
+    var backAction = Model.active ? "Index" : "Inactive";
+}
+<a class="btn btn-secondary" asp-action="@backAction">Volver</a>

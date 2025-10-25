@@ -1,0 +1,39 @@
+﻿@model IEnumerable<SuMejorPeso.Models.Branch>
+
+@{
+    ViewData["Title"] = "Lista de Sedes Inactivas";
+}
+
+<h1>Sedes Inactivas</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">➕ Registrar nueva sede</a>
+    <a class="btn btn-success" asp-action="Index">✅ Ver Activas</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+            <th>Activa</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.name)</td>
+        <td>@Html.DisplayFor(modelItem => item.address)</td>
+        <td>@Html.DisplayFor(modelItem => item.phone)</td>
+        <td>@(item.active ? "Sí" : "No")</td>
+        <td>
+            <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.id">Ver</a>
+            <a class="btn btn-success btn-sm" asp-action="ReactivateConfirmation" asp-route-id="@item.id">Reactivar</a>
+        </td>
+    </tr>
+}   
+    </tbody>
+</table>

@@ -9,7 +9,7 @@ public class GymContext : DbContext
     // Propiedades DbSet para cada clase que quieres mapear a una tabla
     public DbSet<Classroom> Classrooms { get; set; }
     public DbSet<Member> Member { get; set; }
-    public DbSet<Action> Action { get; set; }
+    public DbSet<Assignment> Assignment { get; set; }
     public DbSet<ActivityRecord> ActivityRecord { get; set; }
     public DbSet<Attendance> Attendance { get; set; }
     public DbSet<Coach> Coach { get; set; }
@@ -123,10 +123,11 @@ public class GymContext : DbContext
             .IsRequired(false);
 
 
-        // 6. NUEVA CONFIGURACIÓN N:M (Classroom <-> Coach)
-        modelBuilder.Entity<Classroom>()
-            .HasMany(c => c.coaches)
-            .WithMany(c => c.classrooms)
-            .UsingEntity(j => j.ToTable("ClassroomCoaches"));
+    // Configura la relación Classroom -> Assignment
+         modelBuilder.Entity<Classroom>()
+            .HasOne(c => c.assignment)
+            .WithMany() // Assignment no necesita una lista de Classrooms
+            .HasForeignKey(c => c.assignmentId)
+            .IsRequired(); // Una clase debe tener una asignación/actividad
     }
 }

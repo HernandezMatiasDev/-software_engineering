@@ -1,31 +1,45 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@using System.Security.Claims 
+@using SuMejorPeso.Models 
+
+@{
+    ViewData["Title"] = "Inicio";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <h1 class="display-4">Bienvenido, @User.Identity.Name!</h1>
 
-<div class="text-center mt-4">
-    
-    <a class="btn btn-primary btn-lg" asp-controller="Members" asp-action="Index">
-        Ir a la sección de Miembros
-    </a>
-    
-    <a class="btn btn-secondary btn-lg" asp-controller="Branches" asp-action="Index">
-        Ir a la sección de Sedes
-    </a>
-    <a class="btn btn-secondary btn-lg" asp-controller="Users" asp-action="Index">
-        Ir a la sección de Users
-    </a>
-    <a class="btn btn-secondary btn-lg" asp-controller="TypeMembreships" asp-action="Index">
-        Ir a la sección de TypeMembreships
-    </a>
-    <a class="btn btn-secondary btn-lg" asp-controller="Coaches" asp-action="Index">
-        Ir a la sección de Coaches
-    </a>
-    <a class="btn btn-secondary btn-lg" asp-controller="Specialties" asp-action="Index">
-        Ir a la sección de Specialties
-    </a>
+    @if (User.IsInRole(UserRole.defaults.ToString())) //
+    {
+        <p>Completa tu perfil comprando una membresía.</p>
+        <div class="mt-4">
+            @* TODO: Crear BrowseController *@
+            <a class="btn btn-info btn-lg m-2" asp-controller="Browse" asp-action="Branches">Ver Clases por Sede</a>
+            @* TODO: Crear MembershipStoreController *@
+            <a class="btn btn-success btn-lg m-2" asp-controller="MembershipStore" asp-action="Index">Ver Membresías</a>
+        </div>
+    }
+    else if (User.IsInRole(UserRole.member.ToString())) //
+    {
+        <p>Accede a tu perfil y gestiona tus clases.</p>
+         <div class="mt-4">
+            <a class="btn btn-primary btn-lg m-2" asp-controller="MyProfile" asp-action="Index">Mi Perfil</a>
+             @* TODO: Crear BrowseController *@
+            <a class="btn btn-info btn-lg m-2" asp-controller="Browse" asp-action="Branches">Inscribirse a Clases</a>
+        </div>
+    }
+    else if (User.IsInRole(UserRole.SuperUser.ToString())) //
+    {
+         <p>Panel de Administración Principal.</p>
+          <div class="mt-4">
+             <a class="btn btn-secondary btn-lg m-2" asp-controller="Users" asp-action="Index">Gestionar Usuarios</a>
+             <a class="btn btn-secondary btn-lg m-2" asp-controller="Branches" asp-action="Index">Gestionar Sedes</a>
+             <a class="btn btn-secondary btn-lg m-2" asp-controller="Members" asp-action="Index">Gestionar Miembros</a>
+             @* Añade más botones de admin aquí si quieres *@
+         </div>
+    }
+    else // Para otros roles futuros (Manager, Coach, etc.)
+    {
+        <p>Dashboard pendiente para tu rol.</p>
+    }
+
 </div>

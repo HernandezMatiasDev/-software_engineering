@@ -12,8 +12,8 @@ using SuMejorPeso.Models;
 namespace SuMejorPeso.Migrations
 {
     [DbContext(typeof(GymContext))]
-    [Migration("20251024222443_activeInSpecialty")]
-    partial class activeInSpecialty
+    [Migration("20251025031538_undateGymContext")]
+    partial class undateGymContext
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,7 +37,7 @@ namespace SuMejorPeso.Migrations
 
                     b.HasIndex("coachesid");
 
-                    b.ToTable("ClassroomCoaches", (string)null);
+                    b.ToTable("ClassroomCoach");
                 });
 
             modelBuilder.Entity("ClassroomMember", b =>
@@ -70,34 +70,6 @@ namespace SuMejorPeso.Migrations
                     b.ToTable("CoachSpecialty");
                 });
 
-            modelBuilder.Entity("SuMejorPeso.Models.Action", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("id"));
-
-                    b.Property<string>("description")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("difficulty")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("durationMinutes")
-                        .HasColumnType("int");
-
-                    b.Property<string>("name")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("id");
-
-                    b.ToTable("Action");
-                });
-
             modelBuilder.Entity("SuMejorPeso.Models.ActivityRecord", b =>
                 {
                     b.Property<int>("id")
@@ -118,6 +90,37 @@ namespace SuMejorPeso.Migrations
                     b.HasIndex("userid");
 
                     b.ToTable("ActivityRecord");
+                });
+
+            modelBuilder.Entity("SuMejorPeso.Models.Assignment", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<bool>("active")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("difficulty")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("durationMinutes")
+                        .HasColumnType("int");
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Assignment");
                 });
 
             modelBuilder.Entity("SuMejorPeso.Models.Attendance", b =>
@@ -179,11 +182,11 @@ namespace SuMejorPeso.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("id"));
 
-                    b.Property<int>("actionid")
-                        .HasColumnType("int");
-
                     b.Property<bool>("active")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<int>("assignmentId")
+                        .HasColumnType("int");
 
                     b.Property<int>("branchId")
                         .HasColumnType("int");
@@ -201,7 +204,7 @@ namespace SuMejorPeso.Migrations
 
                     b.HasKey("id");
 
-                    b.HasIndex("actionid");
+                    b.HasIndex("assignmentId");
 
                     b.HasIndex("branchId");
 
@@ -643,9 +646,9 @@ namespace SuMejorPeso.Migrations
 
             modelBuilder.Entity("SuMejorPeso.Models.Classroom", b =>
                 {
-                    b.HasOne("SuMejorPeso.Models.Action", "action")
+                    b.HasOne("SuMejorPeso.Models.Assignment", "assignment")
                         .WithMany()
-                        .HasForeignKey("actionid")
+                        .HasForeignKey("assignmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -655,7 +658,7 @@ namespace SuMejorPeso.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("action");
+                    b.Navigation("assignment");
 
                     b.Navigation("branch");
                 });

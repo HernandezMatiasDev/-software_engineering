@@ -1,0 +1,19 @@
+﻿@model SuMejorPeso.Models.Assignment
+
+@{
+    ViewData["Title"] = "Desactivar Actividad";
+}
+
+<h1>Desactivar Actividad</h1>
+
+<h4>¿Seguro que desea desactivar la actividad @Model.name?</h4>
+<p>
+    Esta actividad ya no podrá ser asignada a clases, pero
+    el historial de clases pasadas se mantendrá.
+</p>
+<hr />
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="id" />
+    <button type="submit" class="btn btn-danger">Sí, Desactivar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

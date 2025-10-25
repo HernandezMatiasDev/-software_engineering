@@ -5,6 +5,12 @@
 }
 
 <h1>Mi Perfil</h1>
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["SuccessMessage"]
+    </div>
+}
 <p>Hola, @Model.name. Aquí están los detalles de tu cuenta.</p>
 
 <div class="row">
@@ -22,7 +28,7 @@
         <table class="table">
             <tr>
                 <th>Licencia (Código de Barras)</th>
-                <td>@Model.license?.barcode</td>
+                <td>@(Model.license?.barcode ?? "N/A")</td>
             </tr>
             <tr>
                 <th>Plan Actual</th>
@@ -39,3 +45,6 @@
         </table>
     </div>
 </div>
+<hr />
+
+<a class="btn btn-primary" asp-controller="Home" asp-action="Index">Volver al Menú Principal</a>

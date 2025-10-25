@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SuMejorPeso.Migrations
 {
     /// <inheritdoc />
-    public partial class baseInited : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,7 +16,7 @@ namespace SuMejorPeso.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Action",
+                name: "Assignment",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "int", nullable: false)
@@ -25,13 +25,14 @@ namespace SuMejorPeso.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     description = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    active = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     durationMinutes = table.Column<int>(type: "int", nullable: false),
                     difficulty = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Action", x => x.id);
+                    table.PrimaryKey("PK_Assignment", x => x.id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -99,7 +100,8 @@ namespace SuMejorPeso.Migrations
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     name = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    active = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -133,7 +135,7 @@ namespace SuMejorPeso.Migrations
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    actionid = table.Column<int>(type: "int", nullable: false),
+                    assignmentid = table.Column<int>(type: "int", nullable: false),
                     name = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     description = table.Column<string>(type: "longtext", nullable: false)
@@ -146,9 +148,9 @@ namespace SuMejorPeso.Migrations
                 {
                     table.PrimaryKey("PK_Classrooms", x => x.id);
                     table.ForeignKey(
-                        name: "FK_Classrooms_Action_actionid",
-                        column: x => x.actionid,
-                        principalTable: "Action",
+                        name: "FK_Classrooms_Assignment_assignmentid",
+                        column: x => x.assignmentid,
+                        principalTable: "Assignment",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -495,9 +497,9 @@ namespace SuMejorPeso.Migrations
                 column: "membersid");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Classrooms_actionid",
+                name: "IX_Classrooms_assignmentid",
                 table: "Classrooms",
-                column: "actionid");
+                column: "assignmentid");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Classrooms_branchId",
@@ -603,7 +605,7 @@ namespace SuMejorPeso.Migrations
                 name: "Memberships");
 
             migrationBuilder.DropTable(
-                name: "Action");
+                name: "Assignment");
 
             migrationBuilder.DropTable(
                 name: "User");

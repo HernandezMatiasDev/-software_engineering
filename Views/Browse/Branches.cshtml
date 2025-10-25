@@ -1,0 +1,15 @@
+﻿@model IEnumerable<SuMejorPeso.Models.Branch>
+
+@{ ViewData["Title"] = "Seleccionar Sede"; }
+
+<h1>Selecciona una Sede para ver sus Clases</h1>
+
+<div class="list-group">
+    @foreach (var branch in Model)
+    {
+        <a asp-action="Classes" asp-route-id="@branch.id" class="list-group-item list-group-item-action">
+            @branch.name
+            <small class="text-muted d-block">@branch.address</small>
+        </a>
+    }
+</div>

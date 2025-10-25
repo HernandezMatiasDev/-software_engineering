@@ -1,0 +1,19 @@
+﻿@model SuMejorPeso.Models.Classroom
+
+@{
+    ViewData["Title"] = "Desactivar Clase";
+}
+
+<h1>Desactivar Clase</h1>
+
+<h4>¿Seguro que desea desactivar la clase @Model.name (@Model.assignment.name)?</h4>
+<p>
+    La clase ya no aparecerá en los horarios y no se podrán inscribir
+    nuevos miembros, pero el historial se mantendrá.
+</p>
+<hr />
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="id" />
+    <button type="submit" class="btn btn-danger">Sí, Desactivar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
