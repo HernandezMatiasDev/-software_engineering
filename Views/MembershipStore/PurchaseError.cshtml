@@ -1,6 +1,6 @@
 ﻿@{ ViewData["Title"] = "Error en la Compra"; }
 
-<h1>Error</h1>
+<h1 class="margen-barra">Error</h1>
 <p class="text-danger">@ViewBag.ErrorMessage</p>
 <a asp-action="Index" class="btn btn-primary">Volver a la tienda</a>
 @if (!User.IsInRole(UserRole.member.ToString()))

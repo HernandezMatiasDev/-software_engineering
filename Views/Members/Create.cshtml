@@ -4,80 +4,84 @@
     ViewData["Title"] = "Registrar Miembro";
 }
 
-<h1>Registrar nuevo miembro</h1>
 <hr />
-<div class="row">
-    <div class="col-md-6">
+<div class="div-create">
+    <div class="fondo-div margen-barra">
         <form asp-action="Create" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-            <div class="form-group mb-3">
-                <label asp-for="name"></label>
-                <input asp-for="name" class="form-control" />
-                <span asp-validation-for="name" class="text-danger"></span>
-            </div>
+            <fieldset>
+                <legend>Registrar nuevo miembro</legend>
+                
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-            <div class="form-group mb-3">
-                <label asp-for="lastName"></label>
-                <input asp-for="lastName" class="form-control" />
-                <span asp-validation-for="lastName" class="text-danger"></span>
-            </div>
+                <div class="form-input">
+                    <label asp-for="name" class="form-label"></label>
+                    <input asp-for="name" class="input-style"  />
+                    <span asp-validation-for="name" class="text-danger"></span>
+                </div>
 
-            <div class="form-group mb-3">
-                <label asp-for="dni"></label>
-                <input asp-for="dni" class="form-control" />
-                <span asp-validation-for="dni" class="text-danger"></span>
-            </div>
+                <div class="form-input">
+                    <label asp-for="lastName" class="form-label"></label>
+                    <input asp-for="lastName" class="input-style"  />
+                    <span asp-validation-for="lastName" class="text-danger"></span>
+                </div>
 
-            <div class="form-group mb-3">
-                <label asp-for="birthdate"></label>
-                <input asp-for="birthdate" class="form-control" type="date" />
-                <span asp-validation-for="birthdate" class="text-danger"></span>
-            </div>
+                <div class="form-input">
+                    <label asp-for="dni" class="form-label"></label>
+                    <input asp-for="dni" class="input-style" />
+                    <span asp-validation-for="dni" class="text-danger"></span>
+                </div>
 
-            <div class="form-group mb-3">
-                <label asp-for="gender"></label>
-                <select asp-for="gender" class="form-control">
-                    <option value="">Seleccione...</option>
-                    <option>Masculino</option>
-                    <option>Femenino</option>
-                    <option>Otro</option>
-                </select>
-                <span asp-validation-for="gender" class="text-danger"></span>
-            </div>
+                <div class="form-input">
+                    <label asp-for="birthdate" class="form-label"></label>
+                    <input asp-for="birthdate" class="input-style"  type="date" />
+                    <span asp-validation-for="birthdate" class="text-danger"></span>
+                </div>
 
-            <div class="form-group mb-3">
-                <label asp-for="phone"></label>
-                <input asp-for="phone" class="form-control" />
-                <span asp-validation-for="phone" class="text-danger"></span>
-            </div>
+                <div class="form-input">
+                    <label asp-for="gender" class="form-label"></label>
+                    <select asp-for="gender"class="input-style" >
+                        <option value="">Seleccione...</option>
+                        <option>Masculino</option>
+                        <option>Femenino</option>
+                        <option>Otro</option>
+                    </select>
+                    <span asp-validation-for="gender" class="text-danger"></span>
+                </div>
 
-            <div class="form-group mb-3">
-                <label asp-for="email"></label>
-                <input asp-for="email" class="form-control" />
-                <span asp-validation-for="email" class="text-danger"></span>
-            </div>
+                <div class="form-input">
+                    <label asp-for="phone" class="form-label"></label>
+                    <input asp-for="phone" class="input-style"  />
+                    <span asp-validation-for="phone" class="text-danger"></span>
+                </div>
 
-            <div class="form-group mb-3">
-                <label asp-for="direction"></label>
-                <input asp-for="direction" class="form-control" />
-            </div>
+                <div class="form-input">
+                    <label asp-for="email" class="form-label"></label>
+                    <input asp-for="email" class="input-style"  />
+                    <span asp-validation-for="email" class="text-danger"></span>
+                </div>
 
-            <div class="form-group mb-3">
-                <label asp-for="membershipId" class="control-label">Tipo de Membresía</label>
-                <select asp-for="membershipId" class="form-control" asp-items="ViewBag.TypeMembreshipList">
-                    <option value="">-- Seleccionar (Opcional) --</option>
-                </select>
-                <span asp-validation-for="membershipId" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-3">
-                <label asp-for="note"></label>
-                <textarea asp-for="note" class="form-control"></textarea>
-            </div>
+                <div class="form-input">
+                    <label asp-for="direction" class="form-label"></label>
+                    <input asp-for="direction"  class="input-style" />
+                </div>
 
-            <div class="form-group mt-4">
-                <button type="submit" class="btn btn-success">Guardar</button>
-                <a asp-action="Index" class="btn btn-secondary">Volver</a>
+                <div class="form-input">
+                    <label asp-for="membershipId"  class="form-label">Tipo de Membresía</label>
+                    <select asp-for="membershipId" class="input-style" asp-items="ViewBag.TypeMembreshipList">
+                        <option value="">-- Seleccionar (Opcional) --</option>
+                    </select>
+                    <span asp-validation-for="membershipId" class="text-danger"></span>
+                </div>
+                <div class="form-input">
+                    <label asp-for="note" class="form-label"></label>
+                    <textarea asp-for="note" class="input-style" ></textarea>
+                </div>
+            </fieldset>
+
+            <div class="form-group d-flex1">
+                <button type="submit" class="btn btn1">Guardar</button>
+                <a asp-action="Index" class="btn btn1">Volver</a>
             </div>
         </form>
     </div>

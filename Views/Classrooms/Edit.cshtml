@@ -5,77 +5,89 @@
     bool isSuperUser = User.IsInRole("SuperUser");
 }
 
-<h1>Editar Clase: @Model.name</h1>
+<h1 class="margen-barra">Editar Clase: @Model.name</h1>
 <hr />
 
-<form asp-action="Edit" method="post">
-    <input type="hidden" asp-for="id" />
-    <input type="hidden" asp-for="active" />
+<div class="fondo-div-completo">
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="id" />
+        <input type="hidden" asp-for="active" />
 
-    <div class="row">
-        <div class="col-md-6">
-            <h4>Detalles de la Clase</h4>
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            
-            <div class="form-group mb-3">
-                <label asp-for="name" class="control-label">Nombre</label>
-                <input asp-for="name" class="form-control" />
-                <span asp-validation-for="name" class="text-danger"></span>
+        <div class="row">
+            <div class="col-md-6">
+
+                <fieldset>
+                    <legend>Detalles de la clase</legend>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    
+                    <div class="form-input">
+                        <label asp-for="name" class="form-label">Nombre</label>
+                        <input asp-for="name" class="input-style" />
+                        <span asp-validation-for="name" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-input">
+                        <label asp-for="description" class="form-label">Descripción</label>
+                        <textarea asp-for="description" class="input-style"></textarea>
+                        <span asp-validation-for="description" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="form-input">
+                        <label asp-for="limitedPlace" class="form-label">Cupo Máximo</label>
+                        <input asp-for="limitedPlace" type="number" class="input-style" />
+                        <span asp-validation-for="limitedPlace" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-input">
+                        <label asp-for="assignmentId" class="form-label">Actividad</label>
+                        <select asp-for="assignmentId" class="input-style" asp-items="ViewBag.ActivityList">
+                            <option value="">-- Seleccionar Actividad --</option>
+                        </select>
+                        <span asp-validation-for="assignmentId" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="form-input">
+                        <label asp-for="branchId" class="form-label">Sede</label>
+                        <select asp-for="branchId" class="input-style" asp-items="ViewBag.BranchList" disabled="@(!isSuperUser)">
+                            @if(isSuperUser) { <option value="">-- Seleccionar Sede --</option> }
+                        </select>
+                        @if (!isSuperUser) { <input type="hidden" asp-for="branchId" /> }
+                        <span asp-validation-for="branchId" class="text-danger"></span>
+                    </div>
+                </fieldset>
+                
             </div>
 
-            <div class="form-group mb-3">
-                <label asp-for="description" class="control-label">Descripción</label>
-                <textarea asp-for="description" class="form-control"></textarea>
-                <span asp-validation-for="description" class="text-danger"></span>
-            </div>
-            
-            <div class="form-group mb-3">
-                <label asp-for="limitedPlace" class="control-label">Cupo Máximo</label>
-                <input asp-for="limitedPlace" type="number" class="form-control" />
-                <span asp-validation-for="limitedPlace" class="text-danger"></span>
-            </div>
+            <div class="col-md-6">
 
-            <div class="form-group mb-3">
-                <label asp-for="assignmentId" class="control-label">Actividad</label>
-                <select asp-for="assignmentId" class="form-control" asp-items="ViewBag.ActivityList">
-                     <option value="">-- Seleccionar Actividad --</option>
-                </select>
-                <span asp-validation-for="assignmentId" class="text-danger"></span>
-            </div>
-            
-            <div class="form-group mb-3">
-                <label asp-for="branchId" class="control-label">Sede</label>
-                <select asp-for="branchId" class="form-control" asp-items="ViewBag.BranchList" disabled="@(!isSuperUser)">
-                     @if(isSuperUser) { <option value="">-- Seleccionar Sede --</option> }
-                </select>
-                 @if (!isSuperUser) { <input type="hidden" asp-for="branchId" /> }
-                <span asp-validation-for="branchId" class="text-danger"></span>
+                <fieldset>
+                    <legend>Asignaciones</legend>
+                    <div class="form-input">
+                        <label class="form-label">Profesores Asignados</label>
+                        <select name="selectedCoaches" class="input-style" multiple asp-items="ViewBag.CoachList" style="height: 140px;">
+                        </select>
+                        <small class="form-text text-muted">Mantenga Ctrl (o Cmd) para seleccionar varios.</small>
+                    </div>
+
+                    <div class="form-input">
+                        <label class="form-label">Miembros Inscritos</label>
+                        <select name="selectedMembers" class="input-style" multiple asp-items="ViewBag.MemberList" style="height: 140px;">
+                        </select>
+                        <small class="form-text text-muted">Mantenga Ctrl (o Cmd) para seleccionar varios.</small>
+                    </div>
+                </fieldset>
+              
             </div>
         </div>
 
-        <div class="col-md-6">
-            <h4>Asignaciones</h4>
-             <div class="form-group mb-3">
-                <label class="control-label">Profesores Asignados</label>
-                <select name="selectedCoaches" class="form-control" multiple asp-items="ViewBag.CoachList" style="height: 150px;">
-                </select>
-                <small class="form-text text-muted">Mantenga Ctrl (o Cmd) para seleccionar varios.</small>
-            </div>
-
-            <div class="form-group mb-3">
-                <label class="control-label">Miembros Inscritos</label>
-                 <select name="selectedMembers" class="form-control" multiple asp-items="ViewBag.MemberList" style="height: 150px;">
-                </select>
-                 <small class="form-text text-muted">Mantenga Ctrl (o Cmd) para seleccionar varios.</small>
-            </div>
+        <div class="form-group d-flex1">
+            <button type="submit" class="btn btn2">Guardar Cambios</button>
+            <a asp-action="Index" class="btn btn2">Volver</a>
         </div>
-    </div>
+    </form>
+</div>
 
-    <div class="form-group mt-4">
-        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-        <a asp-action="Index" class="btn btn-secondary">Volver</a>
-    </div>
-</form>
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

@@ -4,7 +4,7 @@
     ViewData["Title"] = "Especialidades";
 }
 
-<h1>Especialidades de Profesores</h1>
+<h1 class="margen-barra">Especialidades de Profesores</h1>
 
 <p>
     <a class="btn btn-primary" asp-action="Create">➕ Nueva Especialidad</a>
@@ -26,9 +26,16 @@
         <td>@Html.DisplayFor(modelItem => item.name)</td>
         <td>@(item.active ? "Sí" : "No")</td>
         <td>
-            <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.id">Ver</a>
-            <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@item.id">Editar</a>
-            <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.id">Desactivar</a>
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle toggle-table" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                   opciones
+                </a>   
+                <ul class="dropdown-menu dropdown-menu-table"> 
+                    <li><a class="btn  dropdown-item" asp-action="Details" asp-route-id="@item.id">Ver</a> </li> 
+                    <li>  <a class="btn  dropdown-item" asp-action="Edit" asp-route-id="@item.id">Editar</a></li> 
+                    <li> <a class="btn dropdown-item" asp-action="Delete" asp-route-id="@item.id">Desactivar</a></li> 
+                </ul>
+            </div>           
         </td>
     </tr>
 }

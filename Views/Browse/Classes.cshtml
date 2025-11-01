@@ -19,7 +19,7 @@
 
 @{ ViewData["Title"] = $"Clases en {ViewBag.BranchName}"; }
 
-<h1>Clases Disponibles en @ViewBag.BranchName</h1>
+<h1 class="margen-barra">Clases Disponibles en @ViewBag.BranchName</h1>
 <p><a asp-action="Branches">Cambiar de Sede</a></p>
 @if (!Model.Any())
 {

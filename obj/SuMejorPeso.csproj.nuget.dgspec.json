@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mario\\Desktop\\Developer\\Ingenieria de Software\\test 1\\SuMejorPeso\\SuMejorPeso.csproj": {}
+    "C:\\Users\\alesa\\Desktop\\-software_engineering\\SuMejorPeso.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mario\\Desktop\\Developer\\Ingenieria de Software\\test 1\\SuMejorPeso\\SuMejorPeso.csproj": {
+    "C:\\Users\\alesa\\Desktop\\-software_engineering\\SuMejorPeso.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mario\\Desktop\\Developer\\Ingenieria de Software\\test 1\\SuMejorPeso\\SuMejorPeso.csproj",
+        "projectUniqueName": "C:\\Users\\alesa\\Desktop\\-software_engineering\\SuMejorPeso.csproj",
         "projectName": "SuMejorPeso",
-        "projectPath": "C:\\Users\\mario\\Desktop\\Developer\\Ingenieria de Software\\test 1\\SuMejorPeso\\SuMejorPeso.csproj",
-        "packagesPath": "C:\\Users\\mario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mario\\Desktop\\Developer\\Ingenieria de Software\\test 1\\SuMejorPeso\\obj\\",
+        "projectPath": "C:\\Users\\alesa\\Desktop\\-software_engineering\\SuMejorPeso.csproj",
+        "packagesPath": "C:\\Users\\alesa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alesa\\Desktop\\-software_engineering\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mario\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\alesa\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -38,7 +38,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net9.0": {
@@ -82,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

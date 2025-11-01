@@ -1,4 +1,4 @@
-﻿@using System.Security.Claims 
+﻿﻿@using System.Security.Claims 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="~/SuMejorPeso.styles.css" asp-append-version="true" />
 </head>
 <body>
+    <div class="body_overlay"></div>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
@@ -21,39 +22,37 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav ">
 
                         @if (User.IsInRole("member"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="MyProfile" asp-action="Index">Mi Perfil</a>
+                                <a class="nav-link" asp-area="" asp-controller="MyProfile" asp-action="Index">Mi Perfil</a>
                             </li>
                             }
 
                         @if (User.IsInRole("SuperUser"))
                         {
+                            
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Inicio (Admin)</a>
+                                <a class="nav-link" asp-area="" asp-controller="Members" asp-action="Index">Miembros</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Members" asp-action="Index">Gestionar Miembros</a>
+                                <a class="nav-link " asp-area="" asp-controller="Coaches" asp-action="Index">Profesores</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Coaches" asp-action="Index">Profesores</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Branches" asp-action="Index">Sedes</a>
+                                <a class="nav-link" asp-area="" asp-controller="Branches" asp-action="Index">Sedes</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Administración
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" asp-controller="Users" asp-action="Index">Gestionar Usuarios</a></li>
-                                    <li><a class="dropdown-item" asp-controller="TypeMembreships" asp-action="Index">Tipos de Membresía</a></li>
-                                    <li><a class="dropdown-item" asp-controller="Specialties" asp-action="Index">Especialidades</a></li>
-                                    <li><a class="dropdown-item" asp-controller="Assignments" asp-action="Index">Assignments</a></li>
-                                    <li><a class="dropdown-item" asp-controller="Classrooms" asp-action="Index">Classrooms</a></li>
+                                    <li><a class="dropdown-item btn" asp-controller="TypeMembreships" asp-action="Index">Tipos de Membresía</a></li>
+                                    <li><a class="dropdown-item btn" asp-controller="Specialties" asp-action="Index">Especialidades</a></li>
+                                    <li><a class="dropdown-item btn" asp-controller="Assignments" asp-action="Index">Assignments</a></li>
+                                    <li><a class="dropdown-item btn" asp-controller="Classrooms" asp-action="Index">Classrooms</a></li>
+                                    <li><a class="dropdown-item btn" asp-controller="Users" asp-action="Index">Gestionar Usuarios</a></li>
 
                                 </ul>
                             </li>
@@ -62,15 +61,15 @@
                     <ul class="navbar-nav">
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <li class="nav-item">
+                            @* <li class="nav-item">
                                 <span class="navbar-text me-3">
                                     Hola, @User.Identity.Name! 
                                     (Rol: @User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value)
                                 </span>
-                            </li>
-                            <li class="nav-item">
+                            </li> *@
+                            <li class="nav-item ">
                                 <form asp-controller="Account" asp-action="Logout" method="post" id="logoutForm">
-                                    <button type="submit" class="btn btn-outline-danger">
+                                    <button type="submit" class="btn exit-button">
                                         Salir
                                     </button>
                                 </form>
@@ -87,13 +86,15 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div class="container delante">
+        <main role="main" >
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+ 
+
+    <footer class=" footer text-muted">
         <div class="container">
             &copy; 2025 - SuMejorPeso
         </div>

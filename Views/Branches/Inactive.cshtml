@@ -4,14 +4,21 @@
     ViewData["Title"] = "Lista de Sedes Inactivas";
 }
 
-<h1>Sedes Inactivas</h1>
+<h1 class="margen-barra">Sedes Inactivas</h1>
 
 <p>
     <a class="btn btn-primary" asp-action="Create">➕ Registrar nueva sede</a>
     <a class="btn btn-success" asp-action="Index">✅ Ver Activas</a>
 </p>
 
-<table class="table table-striped">
+<table class="table table-striped table-fixed">
+    <colgroup>
+        <col style="width:22%;">
+        <col style="width:22%;">
+        <col style="width:22%;">
+        <col style="width:10%;">
+        <col style="width:80px;">
+    </colgroup>
     <thead>
         <tr>
             <th>Nombre</th>
@@ -30,8 +37,15 @@
         <td>@Html.DisplayFor(modelItem => item.phone)</td>
         <td>@(item.active ? "Sí" : "No")</td>
         <td>
-            <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.id">Ver</a>
-            <a class="btn btn-success btn-sm" asp-action="ReactivateConfirmation" asp-route-id="@item.id">Reactivar</a>
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle toggle-table" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                   opciones
+                </a>   
+                <ul class="dropdown-menu dropdown-menu-table">
+                    <li><a class="btn dropdown-item" asp-action="Details" asp-route-id="@item.id">Ver</a></li> 
+                    <li> <a class="btn  dropdown-item" asp-action="ReactivateConfirmation" asp-route-id="@item.id">Reactivar</a></li> 
+                </ul>
+            </div>        
         </td>
     </tr>
 }   

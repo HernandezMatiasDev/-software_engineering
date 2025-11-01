@@ -6,54 +6,54 @@
 }
 
 <div class="row justify-content-center">
-    <div class="col-md-6">
+    <div class="col-md-6 fondo-div">
         <form asp-action="Register" method="post">
-            <h1 class="text-center">Crear Cuenta (Miembro)</h1>
+            <h1 class="text-center text-inicio">Crear Cuenta (Miembro)</h1>
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             
             <div class="row">
                 <div class="col-md-6">
-                    <div class="form-floating mb-3">
-                        <input asp-for="Name" class="form-control" />
-                        <label asp-for="Name"></label>
+                    <div class="form-input">
+                        <label asp-for="Name" class="form-label"></label>
+                        <input asp-for="Name" class="input-style" />
                         <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="form-floating mb-3">
-                        <input asp-for="LastName" class="form-control" />
-                        <label asp-for="LastName"></label>
+                    <div class="form-input">
+                        <label asp-for="LastName"class="form-label" ></label>
+                        <input asp-for="LastName" class="input-style" />
                         <span asp-validation-for="LastName" class="text-danger"></span>
                     </div>
                 </div>
             </div>
 
-            <div class="form-floating mb-3">
-                <input asp-for="Email" class="form-control" />
-                <label asp-for="Email"></label>
+            <div class="form-input">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="input-style" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
 
-            <div class="form-floating mb-3">
-                <input asp-for="UserName" class="form-control" />
-                <label asp-for="UserName"></label>
+            <div class="form-input">
+                <label asp-for="UserName" class="form-label"></label>
+                <input asp-for="UserName" class="input-style" />
                 <span asp-validation-for="UserName" class="text-danger"></span>
             </div>
 
-            <div class="form-floating mb-3">
-                <input asp-for="Password" type="password" class="form-control" />
-                <label asp-for="Password"></label>
+            <div class="form-input">
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" type="password" class="input-style" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
 
-            <div class="form-floating mb-3">
-                <input asp-for="ConfirmPassword" type="password" class="form-control" />
-                <label asp-for="ConfirmPassword"></label>
+            <div class="form-input">
+                <label asp-for="ConfirmPassword" class="form-label"></label>       
+                <input asp-for="ConfirmPassword" type="password" class="input-style" />
                 <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
             </div>
             
-            <button type="submit" class="w-100 btn btn-lg btn-success">Crear Cuenta</button>
+            <button type="submit" class="w-100 btn btn-lg ">Crear Cuenta</button>
 
             <div class="text-center mt-3">
                 <p>
