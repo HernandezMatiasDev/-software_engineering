@@ -17,329 +17,353 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SuMejorPeso
 build_property.RootNamespace = SuMejorPeso
-build_property.ProjectDir = C:\Users\alesa\Desktop\-software_engineering\
+build_property.ProjectDir = C:\Users\mario\Desktop\Developer\Ingenieria de Software\test 1\SuMejorPeso\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
-build_property.MSBuildProjectDirectory = C:\Users\alesa\Desktop\-software_engineering
+build_property.MSBuildProjectDirectory = C:\Users\mario\Desktop\Developer\Ingenieria de Software\test 1\SuMejorPeso
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Account/Login.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Account/Register.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Account/_LayoutLogin.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Account/_LayoutLogin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxfTGF5b3V0TG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Assignments/Create.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Assignments/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWdubWVudHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Assignments/Delete.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Assignments/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWdubWVudHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Assignments/Details.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Assignments/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWdubWVudHNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Assignments/Edit.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Assignments/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWdubWVudHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Assignments/Inactive.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Assignments/Inactive.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWdubWVudHNcSW5hY3RpdmUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Assignments/Index.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Assignments/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWdubWVudHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Assignments/ReactivateConfirmation.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Assignments/ReactivateConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWdubWVudHNcUmVhY3RpdmF0ZUNvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Branches/Create.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Attendance/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXR0ZW5kYW5jZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Branches/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmNoZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Branches/Delete.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Branches/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmNoZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Branches/Details.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Branches/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmNoZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Branches/Edit.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Branches/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmNoZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Branches/Inactive.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Branches/Inactive.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmNoZXNcSW5hY3RpdmUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Branches/Index.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Branches/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmNoZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Branches/ReactivateConfirmation.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Branches/ReactivateConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmNoZXNcUmVhY3RpdmF0ZUNvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Browse/Branches.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Browse/Branches.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJvd3NlXEJyYW5jaGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Browse/Classes.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Browse/Classes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJvd3NlXENsYXNzZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Browse/Create.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Browse/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJvd3NlXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Browse/Details.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Browse/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJvd3NlXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Browse/Inactive.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Browse/Inactive.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJvd3NlXEluYWN0aXZlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Browse/Index.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Browse/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJvd3NlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Classrooms/Create.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Classrooms/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc3Nyb29tc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Classrooms/Delete.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Classrooms/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc3Nyb29tc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Classrooms/Details.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Classrooms/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc3Nyb29tc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Classrooms/Edit.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Classrooms/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc3Nyb29tc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Classrooms/Inactive.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Classrooms/Inactive.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc3Nyb29tc1xJbmFjdGl2ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Classrooms/Index.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Classrooms/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc3Nyb29tc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Classrooms/ReactivateConfirmation.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Classrooms/ReactivateConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc3Nyb29tc1xSZWFjdGl2YXRlQ29uZmlybWF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Coaches/Create.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Coaches/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29hY2hlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Coaches/Delete.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Coaches/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29hY2hlc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Coaches/Details.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Coaches/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29hY2hlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Coaches/Edit.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Coaches/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29hY2hlc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Coaches/Inactive.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Coaches/Inactive.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29hY2hlc1xJbmFjdGl2ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Coaches/Index.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Coaches/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29hY2hlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Coaches/ReactivateConfirmation.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Coaches/ReactivateConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29hY2hlc1xSZWFjdGl2YXRlQ29uZmlybWF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Home/AccessDenied.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Home/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Home/Index.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Home/Privacy.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/MembershipStore/ConfirmPurchase.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/MembershipStore/ConfirmPurchase.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc2hpcFN0b3JlXENvbmZpcm1QdXJjaGFzZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/MembershipStore/EnterMemberDetails.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/MembershipStore/EnterMemberDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc2hpcFN0b3JlXEVudGVyTWVtYmVyRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/MembershipStore/Index.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/MembershipStore/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc2hpcFN0b3JlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/MembershipStore/PurchaseError.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/MembershipStore/PurchaseError.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc2hpcFN0b3JlXFB1cmNoYXNlRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Members/Create.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/MembershipStore/PurchaseReceipt.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc2hpcFN0b3JlXFB1cmNoYXNlUmVjZWlwdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Members/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Members/Delete.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Members/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Members/Details.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Members/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Members/Edit.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Members/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Members/Inactive.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Members/Inactive.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc1xJbmFjdGl2ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Members/Index.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Members/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Members/ReactivateConfirmation.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Members/ReactivateConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc1xSZWFjdGl2YXRlQ29uZmlybWF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/MyProfile/Index.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/MyProfile/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXlQcm9maWxlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/MyProfile/NoProfile.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/MyProfile/NoProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXlQcm9maWxlXE5vUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Shared/Error.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Reports/AttendanceReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xBdHRlbmRhbmNlUmVwb3J0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Reports/DebtReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xEZWJ0UmVwb3J0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Reports/EarningsReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xFYXJuaW5nc1JlcG9ydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Reports/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Specialties/Create.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Specialties/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BlY2lhbHRpZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Specialties/Delete.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Specialties/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BlY2lhbHRpZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Specialties/Details.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Specialties/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BlY2lhbHRpZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Specialties/Edit.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Specialties/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BlY2lhbHRpZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Specialties/Inactive.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Specialties/Inactive.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BlY2lhbHRpZXNcSW5hY3RpdmUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Specialties/Index.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Specialties/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BlY2lhbHRpZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Specialties/ReactivateConfirmation.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Specialties/ReactivateConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BlY2lhbHRpZXNcUmVhY3RpdmF0ZUNvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/TypeMembreships/Create.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/TypeMembreships/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZU1lbWJyZXNoaXBzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/TypeMembreships/Delete.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/TypeMembreships/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZU1lbWJyZXNoaXBzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/TypeMembreships/Details.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/TypeMembreships/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZU1lbWJyZXNoaXBzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/TypeMembreships/Edit.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/TypeMembreships/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZU1lbWJyZXNoaXBzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/TypeMembreships/Inactive.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/TypeMembreships/Inactive.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZU1lbWJyZXNoaXBzXEluYWN0aXZlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/TypeMembreships/Index.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/TypeMembreships/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZU1lbWJyZXNoaXBzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/TypeMembreships/ReactivateConfirmation.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/TypeMembreships/ReactivateConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZU1lbWJyZXNoaXBzXFJlYWN0aXZhdGVDb25maXJtYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Users/Create.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Users/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Users/Delete.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Users/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Users/Details.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Users/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Users/Edit.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Users/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Users/Inactive.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Users/Inactive.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcSW5hY3RpdmUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Users/Index.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Users/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Users/ReactivateConfirmation.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Users/ReactivateConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcUmVhY3RpdmF0ZUNvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/_ViewImports.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/_ViewStart.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alesa/Desktop/-software_engineering/Views/Shared/_Layout.cshtml]
+[C:/Users/mario/Desktop/Developer/Ingenieria de Software/test 1/SuMejorPeso/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-xueb7nlx0d

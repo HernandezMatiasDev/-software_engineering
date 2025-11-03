@@ -1,0 +1,84 @@
+﻿@model SuMejorPeso.Models.Pay
+
+@{
+    ViewData["Title"] = "Comprobante de Compra";
+}
+
+@* Estilos CSS especiales que SÓLO se aplican al imprimir.
+  Oculta los botones y la barra de navegación.
+*@
+<style>
+    @@media print {
+        .no-print {
+            display: none;
+        }
+        .printable-receipt {
+            box-shadow: none;
+            border: none;
+        }
+    }
+</style>
+
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success no-print">
+                @TempData["SuccessMessage"]
+            </div>
+        }
+
+        <div class="card shadow-sm printable-receipt">
+            <div class="card-header bg-dark text-white text-center">
+                <h2>Comprobante de Pago</h2>
+                <strong>SuMejorPeso GYM</strong>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">¡Gracias por tu compra!</h5>
+                <p>Estos son los detalles de tu nueva membresía:</p>
+                
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <strong>Nro. de Comprobante:</strong>
+                        <span>#@Model.id.ToString("D6")</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <strong>Miembro:</strong>
+                        <span>@Model.member.name @Model.member.lastName</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <strong>Plan Adquirido:</strong>
+                        <span>@Model.membership.type.name</span>
+                    </li>
+                    <li classs="list-group-item d-flex justify-content-between">
+                        <strong>Fecha de Pago:</strong>
+                        <span>@Model.date.ToString("g")</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <strong>Método de Pago:</strong>
+                        <span>@Model.paymentMethod</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between bg-light">
+                        <strong class="h5">TOTAL PAGADO:</strong>
+                        <strong class="h5">$@Model.amount.ToString("N2")</strong>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        @* --- Botones de Acción --- *@
+        <div class="text-center mt-4 no-print">
+            
+            @* Este botón usa JavaScript simple para abrir el diálogo de impresión *@
+            <button onclick="window.print()" class="btn btn-primary btn-lg">
+                🖨️ Imprimir Comprobante
+            </button>
+
+            <a asp-controller="MyProfile" asp-action="Index" class="btn btn-secondary btn-lg">
+                Continuar a Mi Perfil
+            </a>
+        </div>
+    </div>
+</div>

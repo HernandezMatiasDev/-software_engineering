@@ -10,7 +10,7 @@ namespace SuMejorPeso.Controllers
     /// de los Tipos de Membresía (ej: Plan Oro, Plan Plata).
     /// </summary>
     /// 
-    [Authorize(Roles = "SuperUser")]
+    [Authorize(Roles = "SuperUser, Manager, Administrator")]
     public class TypeMembreshipsController : Controller
     {
         private readonly GymContext _context;

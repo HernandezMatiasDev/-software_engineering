@@ -1,0 +1,68 @@
+@model SuMejorPeso.Controllers.ReportsController.AttendanceReportViewModel
+
+@{
+    ViewData["Title"] = "Reporte de Asistencias";
+}
+<h2>📈 Reporte de Asistencias</h2>
+<p>Seleccione un rango de fechas para ver las asistencias.</p>
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="AttendanceReport" method="post">
+            @Html.AntiForgeryToken()
+            <div class="row align-items-end">
+                <div class="col-md-4">
+                    <label asp-for="StartDate" class="form-label"></label>
+                    <input asp-for="StartDate" class="form-control" />
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="EndDate" class="form-label"></label>
+                    <input asp-for="EndDate" class="form-control" />
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary w-100">Generar Reporte</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<hr />
+
+@if (Model.Results.Any())
+{
+    @* --- SECCIÓN DE BOTONES ACTUALIZADA --- *@
+    <div class="d-flex justify-content-between align-items-center mb-2">
+        <h3>Resultados (@Model.Results.Count)</h3>
+        <div>
+            <a class="btn btn-success" asp-action="ExportAttendanceToExcel" 
+               asp-route-startDate="@Model.StartDate.ToString("o")" 
+               asp-route-endDate="@Model.EndDate.ToString("o")">
+                Exportar a Excel
+            </a>
+        </div>
+    </div>
+    
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>Fecha y Hora</th>
+                <th>Miembro</th>
+                <th>Clase</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Results)
+            {
+                <tr>
+                    <td>@item.date.ToString("g")</td>
+                    <td>@item.member?.name @item.member?.lastName</td>
+                    <td>@item.classroom?.name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No se encontraron asistencias para el rango de fechas seleccionado.</p>
+}

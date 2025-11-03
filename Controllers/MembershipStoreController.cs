@@ -222,7 +222,7 @@ namespace SuMejorPeso.Controllers
 
                  // 10. Redirigir al perfil
                  TempData["SuccessMessage"] = "¡Membresía activada con éxito! Ya eres miembro.";
-                 return RedirectToAction("Index", "MyProfile");
+                 return RedirectToAction("PurchaseReceipt", new { payId = newPay.id });
             }
             catch (Exception ex)
             {
@@ -233,7 +233,36 @@ namespace SuMejorPeso.Controllers
             }
             // --- FIN DE LA LÓGICA DE CREACIÓN ---
         } // Fin de CompletePurchase
+        // ============================================================
+        // GET: /MembershipStore/PurchaseReceipt?payId=123
+        // Muestra el comprobante de la compra recién hecha
+        // ============================================================
+        [Authorize(Roles = "member")]
+        public async Task<IActionResult> PurchaseReceipt(int payId)
+        {
+            // Buscamos el pago y cargamos toda la info relacionada para el comprobante
+            var payRecord = await _context.Pay
+                .Include(p => p.member) // Cargamos info del miembro
+                .Include(p => p.membership) // Cargamos la membresía...
+                    .ThenInclude(m => m.type) // ...y el tipo de membresía (para el nombre del plan)
+                .FirstOrDefaultAsync(p => p.id == payId);
 
+            if (payRecord == null)
+            {
+                return NotFound("Comprobante no encontrado.");
+            }
+
+            // --- Chequeo de seguridad ---
+            // Verificamos que el usuario logueado sea el dueño de este comprobante
+            var userIdString = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            if (payRecord.member.userId.ToString() != userIdString)
+            {
+                return Unauthorized("No tienes permiso para ver este comprobante.");
+            }
+            
+            // Pasamos el objeto Pay completo a la vista
+            return View(payRecord);
+        }
 
     } // Fin de MembershipStoreController
 }

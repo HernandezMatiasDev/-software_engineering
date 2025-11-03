@@ -1,0 +1,45 @@
+@model SuMejorPeso.Controllers.ReportsController.DebtReportViewModel
+
+@{
+    ViewData["Title"] = "Reporte de Deudores";
+}
+
+<div class="d-flex justify-content-between align-items-center">
+    <h2>💰 Reporte de Deudores</h2>
+    <div class="alert alert-danger mb-0">
+        <strong>Deuda Total: $@Model.TotalDebt.ToString("N2")</strong>
+    </div>
+</div>
+<p>Miembros con saldo pendiente.</p>
+
+@* --- SECCIÓN DE BOTONES NUEVA --- *@
+<div class="my-3">
+    <a class="btn btn-success" asp-action="ExportDebtToExcel">Exportar a Excel</a>
+    <a class="btn btn-danger" asp-action="ExportDebtToPdf">Exportar a PDF</a>
+</div>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Miembro</th>
+            <th>Email</th>
+            <th>Estado Membresía</th>
+            <th class="text-end">Deuda</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var member in Model.MembersWithDebt)
+        {
+            <tr>
+                <td>@member.name @member.lastName</td>
+                <td>@member.email</td>
+                <td>
+                    <span class="badge bg-warning text-dark">@member.membership?.state</span>
+                </td>
+                <td class="text-end text-danger fw-bold">
+                    $@member.membership?.debt.ToString("N2")
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

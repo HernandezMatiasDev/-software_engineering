@@ -9,7 +9,7 @@ namespace SuMejorPeso.Controllers
     /// Controlador para las operaciones CRUD de las Especialidades de los profesores
     /// (ej: Yoga, CrossFit, Funcional).
     /// </summary>
-    [Authorize(Roles = "SuperUser")]
+    [Authorize(Roles = "SuperUser, Manager, Administrator")]
     public class SpecialtiesController : Controller
     {
         private readonly GymContext _context;

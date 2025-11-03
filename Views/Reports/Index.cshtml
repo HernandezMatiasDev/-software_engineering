@@ -1,0 +1,19 @@
+@{
+    ViewData["Title"] = "Reportes";
+}
+
+<h2>Centro de Reportes</h2>
+<p>Seleccione el reporte que desea generar.</p>
+<hr />
+
+<div class="list-group">
+    <a asp-action="AttendanceReport" class="list-group-item list-group-item-action">
+        📈 Reporte de Asistencias
+    </a>
+    <a asp-action="DebtReport" class="list-group-item list-group-item-action">
+        💰 Reporte de Deudores
+    </a>
+    <a asp-action="EarningsReport" class="list-group-item list-group-item-action">
+        💵 Reporte de Ganancias
+    </a>
+</div>

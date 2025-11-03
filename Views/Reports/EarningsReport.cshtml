@@ -1,0 +1,73 @@
+@model SuMejorPeso.Controllers.ReportsController.EarningsReportViewModel
+
+@{
+    ViewData["Title"] = "Reporte de Ganancias";
+}
+
+<h2>💵 Reporte de Ganancias</h2>
+<p>Seleccione un rango de fechas para ver los pagos recibidos.</p>
+
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="EarningsReport" method="post">
+            @Html.AntiForgeryToken()
+            <div class="row align-items-end">
+                <div class="col-md-4">
+                    <label asp-for="StartDate" class="form-label"></label>
+                    <input asp-for="StartDate" class="form-control" />
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="EndDate" class="form-label"></label>
+                    <input asp-for="EndDate" class="form-control" />
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary w-100">Generar Reporte</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<hr />
+
+@if (Model.Results.Any())
+{
+    <div class="d-flex justify-content-between align-items-center mb-2">
+        <h3>Resultados (@Model.Results.Count) - Total: $@Model.TotalEarnings.ToString("N2")</h3>
+        <div>
+            @* --- BOTONES DE EXPORTACIÓN --- *@
+            <a class="btn btn-success" asp-action="ExportEarningsToExcel" 
+               asp-route-startDate="@Model.StartDate.ToString("o")" 
+               asp-route-endDate="@Model.EndDate.ToString("o")">
+                Exportar a Excel
+            </a>
+            @* (El link de PDF lo puedes agregar cuando crees la lógica) *@
+        </div>
+    </div>
+    
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>Fecha y Hora</th>
+                <th>Miembro</th>
+                <th>Método de Pago</th>
+                <th class="text-end">Monto</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Results)
+            {
+                <tr>
+                    <td>@item.date.ToString("g")</td>
+                    <td>@item.member?.name @item.member?.lastName</td>
+                    <td>@item.paymentMethod</td>
+                    <td class="text-end">$@item.amount.ToString("N2")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No se encontraron pagos para el rango de fechas seleccionado.</p>
+}

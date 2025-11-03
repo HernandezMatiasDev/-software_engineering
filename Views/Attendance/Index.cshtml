@@ -1,0 +1,75 @@
+@* Este 'model' es la clase "TakeAttendanceViewModel" que definimos 
+  DENTRO de tu "AttendanceController.cs"
+*@
+@model SuMejorPeso.Controllers.AttendanceController.TakeAttendanceViewModel
+
+@{
+    ViewData["Title"] = "Tomar Asistencia";
+}
+
+<h2>Tomar Asistencia</h2>
+<p>Escanee el código de barras del miembro o ingréselo manualmente y seleccione la clase.</p>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+
+        @* Estas secciones son IMPORTANTES.
+          Muestran los mensajes de "Éxito", "Error" o "Aviso" 
+          que configuramos en el controlador.
+        *@
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+        }
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+        }
+        @if (TempData["WarningMessage"] != null)
+        {
+            <div class="alert alert-warning">@TempData["WarningMessage"]</div>
+        }
+
+        @* Este es el formulario.
+          - "asp-action="TakeAttendance"" le dice que debe llamar a tu método "TakeAttendance" (el POST)
+        *@
+        <form asp-action="TakeAttendance" method="post">
+            
+            @* Token de seguridad, requerido por [ValidateAntiForgeryToken] *@
+            @Html.AntiForgeryToken()
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @* CAMPO 1: CÓDIGO DE BARRAS *@
+            <div class="form-group mb-3">
+                <label asp-for="Barcode" class="control-label"></label>
+                <input asp-for="Barcode" class="form-control" autofocus />
+                <span asp-validation-for="Barcode" class="text-danger"></span>
+            </div>
+
+            @* CAMPO 2: DROPDOWN DE CLASES *@
+            <div class="form-group mb-3">
+                <label asp-for="ClassroomId" class="control-label"></label>
+                @* "asp-items="ViewBag.Classrooms"" toma la lista de clases
+                  que cargamos en el controlador (en el método LoadClassroomsViewBag)
+                *@
+                <select asp-for="ClassroomId" class="form-control" asp-items="ViewBag.Classrooms">
+                    <option value="">-- Seleccione una clase --</option>
+                </select>
+                <span asp-validation-for="ClassroomId" class="text-danger"></span>
+            </div>
+
+            @* BOTÓN DE ENVÍO *@
+            <div class="form-group">
+                <input type="submit" value="Registrar Asistencia" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@* Esto es para activar las validaciones del lado del cliente (para los [Required]) *@
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

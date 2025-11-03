@@ -128,18 +128,23 @@ namespace SuMejorPeso.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("id"));
 
-                    b.Property<int?>("Memberid")
+                    b.Property<int>("classId")
                         .HasColumnType("int");
 
-                    b.Property<int>("classId")
+                    b.Property<int?>("classroomid")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("date")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<int>("memberId")
+                        .HasColumnType("int");
+
                     b.HasKey("id");
 
-                    b.HasIndex("Memberid");
+                    b.HasIndex("classroomid");
+
+                    b.HasIndex("memberId");
 
                     b.ToTable("Attendance");
                 });
@@ -418,6 +423,10 @@ namespace SuMejorPeso.Migrations
 
                     b.HasKey("id");
 
+                    b.HasIndex("memberId");
+
+                    b.HasIndex("membershipId");
+
                     b.ToTable("Pay");
                 });
 
@@ -636,9 +645,19 @@ namespace SuMejorPeso.Migrations
 
             modelBuilder.Entity("SuMejorPeso.Models.Attendance", b =>
                 {
-                    b.HasOne("SuMejorPeso.Models.Member", null)
+                    b.HasOne("SuMejorPeso.Models.Classroom", "classroom")
+                        .WithMany()
+                        .HasForeignKey("classroomid");
+
+                    b.HasOne("SuMejorPeso.Models.Member", "member")
                         .WithMany("attendance")
-                        .HasForeignKey("Memberid");
+                        .HasForeignKey("memberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("classroom");
+
+                    b.Navigation("member");
                 });
 
             modelBuilder.Entity("SuMejorPeso.Models.Classroom", b =>
@@ -707,6 +726,25 @@ namespace SuMejorPeso.Migrations
                         .IsRequired();
 
                     b.Navigation("type");
+                });
+
+            modelBuilder.Entity("SuMejorPeso.Models.Pay", b =>
+                {
+                    b.HasOne("SuMejorPeso.Models.Member", "member")
+                        .WithMany()
+                        .HasForeignKey("memberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SuMejorPeso.Models.Membership", "membership")
+                        .WithMany()
+                        .HasForeignKey("membershipId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("member");
+
+                    b.Navigation("membership");
                 });
 
             modelBuilder.Entity("SuMejorPeso.Models.ScheduleClassroom", b =>

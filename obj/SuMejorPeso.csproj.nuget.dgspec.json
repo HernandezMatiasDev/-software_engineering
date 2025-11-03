@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alesa\\Desktop\\-software_engineering\\SuMejorPeso.csproj": {}
+    "C:\\Users\\mario\\Desktop\\Developer\\Ingenieria de Software\\test 1\\SuMejorPeso\\SuMejorPeso.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alesa\\Desktop\\-software_engineering\\SuMejorPeso.csproj": {
+    "C:\\Users\\mario\\Desktop\\Developer\\Ingenieria de Software\\test 1\\SuMejorPeso\\SuMejorPeso.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alesa\\Desktop\\-software_engineering\\SuMejorPeso.csproj",
+        "projectUniqueName": "C:\\Users\\mario\\Desktop\\Developer\\Ingenieria de Software\\test 1\\SuMejorPeso\\SuMejorPeso.csproj",
         "projectName": "SuMejorPeso",
-        "projectPath": "C:\\Users\\alesa\\Desktop\\-software_engineering\\SuMejorPeso.csproj",
-        "packagesPath": "C:\\Users\\alesa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alesa\\Desktop\\-software_engineering\\obj\\",
+        "projectPath": "C:\\Users\\mario\\Desktop\\Developer\\Ingenieria de Software\\test 1\\SuMejorPeso\\SuMejorPeso.csproj",
+        "packagesPath": "C:\\Users\\mario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mario\\Desktop\\Developer\\Ingenieria de Software\\test 1\\SuMejorPeso\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\alesa\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\mario\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -38,12 +38,16 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.105.0, )"
+            },
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
               "version": "[9.0.10, )"
@@ -61,6 +65,14 @@
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
               "version": "[9.0.0, )"
+            },
+            "QuestPDF": {
+              "target": "Package",
+              "version": "[2025.7.3, )"
+            },
+            "X.PagedList.Mvc.Core": {
+              "target": "Package",
+              "version": "[10.5.9, )"
             }
           },
           "imports": [
@@ -82,7 +94,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
