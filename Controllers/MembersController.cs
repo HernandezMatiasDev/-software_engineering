@@ -4,6 +4,7 @@ using SuMejorPeso.Models;
 using SuMejorPeso.Helpers;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Authorization;
+using X.PagedList.EF;
 
 namespace SuMejorPeso.Controllers
 {
@@ -24,35 +25,80 @@ namespace SuMejorPeso.Controllers
 
         // ============================================================
         // GET: /Members/
-        // Muestra la lista completa de miembros
+        // Muestra la lista PAGINADA y con BUSCADOR
         // ============================================================
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString, int? page)
         {
-            // Filtrar solo a los miembros activos (active == true)
-            var members = await _context.Member
-                .Where(m => m.active) // <-- Nuevo filtro: trae solo donde active es true
-                .Include(m => m.license)
-                .Include(m => m.membership)
-                .ToListAsync();
+            // 1. Guardamos el filtro de búsqueda para mostrarlo en la vista
+            ViewBag.CurrentFilter = searchString;
 
-            return View(members);
+            // 2. Creamos la consulta BASE. 
+            //    NOTA: .AsNoTracking() hace que la consulta sea más rápida, 
+            //    porque solo queremos leer datos, no modificarlos.
+            var membersQuery = _context.Member
+                                    .AsNoTracking()
+                                    .Where(m => m.active);
+
+            // 3. Aplicamos el filtro de búsqueda (si existe)
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                // Buscamos por DNI (convirtiéndolo a string), Nombre o Apellido
+                membersQuery = membersQuery.Where(m =>
+                    m.dni.ToString().Contains(searchString) ||
+                    m.name.Contains(searchString) ||
+                    m.lastName.Contains(searchString));
+            }
+            
+            // 4. Ordenamos la consulta (¡OBLIGATORIO para paginar!)
+            //    (Quitamos los .Include() que no se usan en la vista Index 
+            //    para que sea mucho más rápido)
+            membersQuery = membersQuery.OrderBy(m => m.lastName);
+
+            // 5. Definimos el tamaño de la página y el número de página
+            int pageSize = 20; // 20 miembros por página
+            int pageNumber = (page ?? 1); // Si page es nulo, mostramos la página 1
+
+            // 6. Convertimos la consulta en una lista paginada.
+            //    ¡Esta es la línea que ejecuta la consulta en la BD!
+            //    Solo traerá los 20 registros que necesitamos.
+            var pagedMembers = await membersQuery.ToPagedListAsync(pageNumber, pageSize);
+
+            // 7. Enviamos la lista paginada a la vista
+            return View(pagedMembers);
         }
 
         // ============================================================
         // GET: /Members/Inactive
-        // Muestra la lista de miembros INACTIVOS
+        // Muestra la lista de miembros INACTIVOS (PAGINADA Y CON BUSCADOR)
         // ============================================================
-        public async Task<IActionResult> Inactive()
+        public async Task<IActionResult> Inactive(string searchString, int? page)
         {
-            // Filtrar solo a los miembros inactivos (active == false)
-            var members = await _context.Member
-                .Where(m => !m.active) // <-- Filtro: trae solo donde active es false
-                .Include(m => m.license)
-                .Include(m => m.membership)
-                .ToListAsync();
+            ViewBag.CurrentFilter = searchString;
 
-            // Devolvemos una nueva vista Inactive.cshtml
-            return View(members);
+            // 1. Consulta base (¡Ahora con el filtro !m.active)
+            var membersQuery = _context.Member
+                                    .AsNoTracking()
+                                    .Where(m => !m.active); // <-- ÚNICO CAMBIO (de 'true' a 'false')
+
+            // 2. Aplicamos el filtro de búsqueda (si existe)
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                membersQuery = membersQuery.Where(m =>
+                    m.dni.ToString().Contains(searchString) ||
+                    m.name.Contains(searchString) ||
+                    m.lastName.Contains(searchString));
+            }
+
+            // 3. Ordenamos (Obligatorio para paginar)
+            membersQuery = membersQuery.OrderBy(m => m.lastName);
+
+            // 4. Paginamos la consulta
+            int pageSize = 20;
+            int pageNumber = (page ?? 1);
+            var pagedMembers = await membersQuery.ToPagedListAsync(pageNumber, pageSize);
+
+            // 5. Devolvemos la vista 'Inactive.cshtml' con el modelo paginado
+            return View(pagedMembers);
         }
         // ============================================================
         // GET: /Members/Details/5

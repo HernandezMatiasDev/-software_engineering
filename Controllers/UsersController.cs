@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using SuMejorPeso.Models;
 using SuMejorPeso.Helpers; // --- CAMBIO: Añadido el using para el PasswordHelper
 using Microsoft.AspNetCore.Authorization;
+using X.PagedList.EF;
+
 namespace SuMejorPeso.Controllers
 {
     /// <summary>
@@ -23,32 +25,73 @@ namespace SuMejorPeso.Controllers
 
         // ============================================================
         // GET: /Users/
-        // Muestra la lista completa de usuarios ACTIVOS
+        // Muestra la lista de usuarios ACTIVOS (PAGINADA Y CON BUSCADOR)
         // ============================================================
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString, int? page)
         {
-            var users = await _context.User
-                .Include(u => u.branch) 
-                .Where(u => u.active) 
-                .ToListAsync();
+            ViewBag.CurrentFilter = searchString;
 
-            return View(users);
+            // 1. Consulta base (activos)
+            var usersQuery = _context.User
+                                    .AsNoTracking()
+                                    .Include(u => u.branch) 
+                                    .Where(u => u.active);
+
+            // 2. Filtro de búsqueda
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                usersQuery = usersQuery.Where(u =>
+                    u.userName.Contains(searchString) ||
+                    u.name.Contains(searchString) ||
+                    u.lastName.Contains(searchString) ||
+                    u.email.Contains(searchString));
+            }
+
+            // 3. Orden
+            usersQuery = usersQuery.OrderBy(u => u.userName);
+
+            // 4. Paginación
+            int pageSize = 20;
+            int pageNumber = (page ?? 1);
+            var pagedUsers = await usersQuery.ToPagedListAsync(pageNumber, pageSize);
+
+            return View(pagedUsers);
         }
 
         // ============================================================
         // GET: /Users/Inactive
-        // Muestra la lista de usuarios INACTIVOS
+        // Muestra la lista de usuarios INACTIVOS (PAGINADA Y CON BUSCADOR)
         // ============================================================
-        public async Task<IActionResult> Inactive()
+        public async Task<IActionResult> Inactive(string searchString, int? page)
         {
-            var users = await _context.User
-                .Include(u => u.branch) 
-                .Where(u => !u.active) 
-                .ToListAsync();
-            
-            return View(users); 
-        }
+            ViewBag.CurrentFilter = searchString;
 
+            // 1. Consulta base (inactivos)
+            var usersQuery = _context.User
+                                    .AsNoTracking()
+                                    .Include(u => u.branch) 
+                                    .Where(u => !u.active); // <-- Filtro cambiado
+
+            // 2. Filtro de búsqueda
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                usersQuery = usersQuery.Where(u =>
+                    u.userName.Contains(searchString) ||
+                    u.name.Contains(searchString) ||
+                    u.lastName.Contains(searchString) ||
+                    u.email.Contains(searchString));
+            }
+
+            // 3. Orden
+            usersQuery = usersQuery.OrderBy(u => u.userName);
+
+            // 4. Paginación
+            int pageSize = 20;
+            int pageNumber = (page ?? 1);
+            var pagedUsers = await usersQuery.ToPagedListAsync(pageNumber, pageSize);
+
+            return View(pagedUsers); 
+        }
         // ============================================================
         // GET: /Users/Details/5
         // Muestra información detallada de un usuario

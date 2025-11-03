@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SuMejorPeso")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2922c78f9a83947087052608ec9987646342c97e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+620a620dafa79329c3d79d5a3b23bd750e6ed144")]
 [assembly: System.Reflection.AssemblyProductAttribute("SuMejorPeso")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SuMejorPeso")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
