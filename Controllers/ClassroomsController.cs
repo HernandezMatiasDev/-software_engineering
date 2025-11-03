@@ -308,8 +308,10 @@ namespace SuMejorPeso.Controllers
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return NotFound();
-            var classroom = await _context.Classrooms.FirstOrDefaultAsync(m => m.id == id);
-             // TODO: Seguridad Manager/Admin
+            var classroom = await _context.Classrooms
+                .Include(c => c.branch)       
+                .Include(c => c.assignment)   
+                .FirstOrDefaultAsync(m => m.id == id);             
             if (classroom == null) return NotFound();
             return View(classroom);
         }
