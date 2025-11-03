@@ -7,13 +7,13 @@
     ViewData["Title"] = "Tomar Asistencia";
 }
 
-<h2>Tomar Asistencia</h2>
+<h1 class="margen-barra">Tomar Asistencia</h1>
 <p>Escanee el código de barras del miembro o ingréselo manualmente y seleccione la clase.</p>
 
 <hr />
 
-<div class="row">
-    <div class="col-md-6">
+<div class="row fondo-div">
+    <div class="col-md-12">
 
         @* Estas secciones son IMPORTANTES.
           Muestran los mensajes de "Éxito", "Error" o "Aviso" 
@@ -43,19 +43,19 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             @* CAMPO 1: CÓDIGO DE BARRAS *@
-            <div class="form-group mb-3">
-                <label asp-for="Barcode" class="control-label"></label>
-                <input asp-for="Barcode" class="form-control" autofocus />
+            <div class="form-input">
+                <label asp-for="Barcode" class="form-label"></label>
+                <input asp-for="Barcode" class="input-style" autofocus />
                 <span asp-validation-for="Barcode" class="text-danger"></span>
             </div>
 
             @* CAMPO 2: DROPDOWN DE CLASES *@
-            <div class="form-group mb-3">
-                <label asp-for="ClassroomId" class="control-label"></label>
+            <div class="form-input">
+                <label asp-for="ClassroomId" class="form-label"></label>
                 @* "asp-items="ViewBag.Classrooms"" toma la lista de clases
                   que cargamos en el controlador (en el método LoadClassroomsViewBag)
                 *@
-                <select asp-for="ClassroomId" class="form-control" asp-items="ViewBag.Classrooms">
+                <select asp-for="ClassroomId" class="input-style" asp-items="ViewBag.Classrooms">
                     <option value="">-- Seleccione una clase --</option>
                 </select>
                 <span asp-validation-for="ClassroomId" class="text-danger"></span>
@@ -63,7 +63,7 @@
 
             @* BOTÓN DE ENVÍO *@
             <div class="form-group">
-                <input type="submit" value="Registrar Asistencia" class="btn btn-primary" />
+                <input type="submit" value="Registrar Asistencia" class="btn " />
             </div>
         </form>
     </div>

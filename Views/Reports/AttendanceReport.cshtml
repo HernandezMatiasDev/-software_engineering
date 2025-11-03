@@ -3,23 +3,23 @@
 @{
     ViewData["Title"] = "Reporte de Asistencias";
 }
-<h2>📈 Reporte de Asistencias</h2>
+<h1 class="margen-barra">📈 Reporte de Asistencias</h1>
 <p>Seleccione un rango de fechas para ver las asistencias.</p>
-<div class="row">
-    <div class="col-md-8">
+<div class="row fondo-div-completo">
+    <div class="col-md-12">
         <form asp-action="AttendanceReport" method="post">
             @Html.AntiForgeryToken()
             <div class="row align-items-end">
                 <div class="col-md-4">
                     <label asp-for="StartDate" class="form-label"></label>
-                    <input asp-for="StartDate" class="form-control" />
+                    <input asp-for="StartDate" class="input-style" />
                 </div>
                 <div class="col-md-4">
                     <label asp-for="EndDate" class="form-label"></label>
-                    <input asp-for="EndDate" class="form-control" />
+                    <input asp-for="EndDate" class="input-style" />
                 </div>
                 <div class="col-md-4">
-                    <button type="submit" class="btn btn-primary w-100">Generar Reporte</button>
+                    <button type="submit" class="btn  w-100">Generar Reporte</button>
                 </div>
             </div>
         </form>
@@ -64,5 +64,5 @@
 }
 else
 {
-    <p>No se encontraron asistencias para el rango de fechas seleccionado.</p>
+    <p class="text-claro">No se encontraron asistencias para el rango de fechas seleccionado.</p>
 }

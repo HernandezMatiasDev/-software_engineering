@@ -33,27 +33,43 @@
 
                         @if (User.IsInRole("SuperUser"))
                         {
-                            
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Members" asp-action="Index">Miembros</a>
+                                <a class="nav-link" asp-area="" asp-controller="Reports" asp-action="Index">Reportes</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link " asp-area="" asp-controller="Coaches" asp-action="Index">Profesores</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Branches" asp-action="Index">Sedes</a>
-                            </li>
+
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Administración
+                                        Gestionar 
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item btn" asp-controller="Attendance" asp-action="Index">Codigo de barras</a></li>
+                                    <li><a class="dropdown-item btn" asp-area="" asp-controller="Members" asp-action="Index">Miembros</a></li>
+                                    <li><a class="dropdown-item btn" asp-controller="Assignments" asp-action="Index">Actividades</a></li>
+                                    <li><a class="dropdown-item btn" asp-controller="Classrooms" asp-action="Index">Clases</a></li>
+                                    <li><a class="dropdown-item btn" asp-area="" asp-controller="Branches" asp-action="Index">Sedes</a></li>                                   
+
+                                </ul>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Personal 
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item btn " asp-area="" asp-controller="Coaches" asp-action="Index">Profesores</a></li>
+                                    <li><a class="dropdown-item btn" asp-controller="Users" asp-action="Index">Gestionar Usuarios</a></li> 
+                                </ul>
+                            </li>
+
+                         
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Configuracion
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item btn" asp-controller="TypeMembreships" asp-action="Index">Tipos de Membresía</a></li>
                                     <li><a class="dropdown-item btn" asp-controller="Specialties" asp-action="Index">Especialidades</a></li>
-                                    <li><a class="dropdown-item btn" asp-controller="Assignments" asp-action="Index">Assignments</a></li>
-                                    <li><a class="dropdown-item btn" asp-controller="Classrooms" asp-action="Index">Classrooms</a></li>
-                                    <li><a class="dropdown-item btn" asp-controller="Users" asp-action="Index">Gestionar Usuarios</a></li>
-
                                 </ul>
                             </li>
                         }

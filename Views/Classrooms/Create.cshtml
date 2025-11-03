@@ -8,89 +8,103 @@
 <h1 class="margen-barra">Crear Nueva Clase</h1>
 <hr />
 
+<div class="contenedor-general">
 
-<div class="fondo-div-completo">
-    <form asp-action="Create" method="post">
-        <div class="row">
-            <div class="col-md-6">
+    <div class="fondo-div-completo">
+        <form asp-action="Create" method="post">
+            <div class="row">
+                <div class="col-md-6">
 
-                <fieldset>
-                    <legend>Detalles de la Clase</legend>
-                    
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    
-                    <div class="form-input">
-                        <label asp-for="name" class="form-label">Nombre de la Clase</label>
-                        <input asp-for="name" class="input-style" />
-                        <span asp-validation-for="name" class="text-danger"></span>
-                    </div>
+                    <fieldset>
+                        <legend>Detalles de la Clase</legend>
+                        
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        
+                        <div class="form-input">
+                            <label asp-for="name" class="form-label">Nombre de la Clase</label>
+                            <input asp-for="name" class="input-style" />
+                            <span asp-validation-for="name" class="text-danger"></span>
+                        </div>
 
-                    <div class="form-input">
-                        <label asp-for="description" class="form-label">Descripción</label>
-                        <textarea asp-for="description" class="input-style"></textarea>
-                        <span asp-validation-for="description" class="text-danger"></span>
-                    </div>
-                    
-                    <div class="form-input">
-                        <label asp-for="limitedPlace" class="form-label">Cupo Máximo</label>
-                        <input asp-for="limitedPlace" type="number" class="input-style" />
-                        <span asp-validation-for="limitedPlace" class="text-danger"></span>
-                    </div>
+                        <div class="form-input">
+                            <label asp-for="description" class="form-label">Descripción</label>
+                            <textarea asp-for="description" class="input-style"></textarea>
+                            <span asp-validation-for="description" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="form-input">
+                            <label asp-for="limitedPlace" class="form-label">Cupo Máximo</label>
+                            <input asp-for="limitedPlace" type="number" class="input-style" />
+                            <span asp-validation-for="limitedPlace" class="text-danger"></span>
+                        </div>
 
-                    <div class="form-input">
-                        <label asp-for="assignmentId" class="form-label">Actividad</label>
-                        <select asp-for="assignmentId" class="input-style" asp-items="ViewBag.ActivityList">
-                            <option value="">-- Seleccionar Actividad --</option>
-                        </select>
-                        <span asp-validation-for="assignmentId" class="text-danger"></span>
-                    </div>
-                    
-                    <div class="form-input">
-                        <label asp-for="branchId" class="form-label">Sede</label>
-                        <select asp-for="branchId" class="input-style" asp-items="ViewBag.BranchList" 
-                                disabled="@(!isSuperUser)"> @if(isSuperUser) { <option value="">-- Seleccionar Sede --</option> }
-                        </select>
-                        @if (!isSuperUser) { 
-                            <input type="hidden" asp-for="branchId" /> 
-                        }
-                        <span asp-validation-for="branchId" class="text-danger"></span>
-                    </div>
-                </fieldset>
-                
-
+                        <div class="form-input">
+                            <label asp-for="assignmentId" class="form-label">Actividad</label>
+                            <select asp-for="assignmentId" class="input-style" asp-items="ViewBag.ActivityList">
+                                <option value="">-- Seleccionar Actividad --</option>
+                            </select>
+                            <span asp-validation-for="assignmentId" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="form-input">
+                            <label asp-for="branchId" class="form-label">Sede</label>
+                            <select asp-for="branchId" class="input-style" asp-items="ViewBag.BranchList" 
+                                    disabled="@(!isSuperUser)"> @if(isSuperUser) { <option value="">-- Seleccionar Sede --</option> }
+                            </select>
+                            @if (!isSuperUser) { 
+                                <input type="hidden" asp-for="branchId" /> 
+                            }
+                            <span asp-validation-for="branchId" class="text-danger"></span>
+                        </div>
+                    </fieldset>
 
 
+
+                </div>
+
+
+                <div class="col-md-6">
+                    <fieldset>
+                        <legend>Asignaciones</legend>
+                        <div class="form-input">
+                            <label class="form-label">Profesores Asignados</label>
+                            <select name="selectedCoaches" class="input-style" multiple asp-items="ViewBag.CoachList" style="height: 140px;">
+                            </select>
+                            <small class="form-text text-muted">Mantenga Ctrl (o Cmd) para seleccionar varios.</small>
+                        </div>
+
+                        <div class="form-input">
+                            <label class="form-label">Miembros Inscritos</label>
+                            <select name="selectedMembers" class="input-style" multiple asp-items="ViewBag.MemberList" style="height: 140px;">
+                            </select>
+                            <small class="form-text text-muted">Mantenga Ctrl (o Cmd) para seleccionar varios.</small>
+                        </div>
+                    </fieldset>
+                </div>
             </div>
 
-
-            <div class="col-md-6">
-                <fieldset>
-                    <legend>Asignaciones</legend>
-                    <div class="form-input">
-                        <label class="form-label">Profesores Asignados</label>
-                        <select name="selectedCoaches" class="input-style" multiple asp-items="ViewBag.CoachList" style="height: 140px;">
-                        </select>
-                        <small class="form-text text-muted">Mantenga Ctrl (o Cmd) para seleccionar varios.</small>
-                    </div>
-
-                    <div class="form-input">
-                        <label class="form-label">Miembros Inscritos</label>
-                        <select name="selectedMembers" class="input-style" multiple asp-items="ViewBag.MemberList" style="height: 140px;">
-                        </select>
-                        <small class="form-text text-muted">Mantenga Ctrl (o Cmd) para seleccionar varios.</small>
-                    </div>
-                </fieldset>
+            <div class="form-group d-flex1">
+                <button type="submit" class="btn btn2">Guardar Clase</button>
+                <a asp-action="Index" class="btn btn2">Volver</a>
             </div>
-        </div>
+        </form>
+    </div>
+    
+    <div class="tarjeta-info">
+        <h3>🎓 Consejo</h3>
+        <p>
+            Completá todos los campos con atención para crear una clase correctamente.  
+            Asegurate de asignar la actividad, el profesor y los miembros adecuados, y de establecer un cupo razonable.
+        </p>
+        <hr>
+        <p class="texto-secundario">
+            Recordá que más adelante podrás modificar o desactivar clases desde la sección “Clases Registradas”.
+        </p>
+        <div class="img-classroom"></div>
+    </div>
 
-        <div class="form-group d-flex1">
-            <button type="submit" class="btn btn2">Guardar Clase</button>
-            <a asp-action="Index" class="btn btn2">Volver</a>
-        </div>
-    </form>
+
 </div>
-
-
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

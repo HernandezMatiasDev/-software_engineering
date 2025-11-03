@@ -4,79 +4,97 @@
     ViewData["Title"] = "Editar Miembro";
 }
 
+<div class="contenedor-general">
 
-<div class="fondo-div margen-barra">
-    <form asp-action="Edit" method="post">
-        <fieldset>
-            <legend>Editar miembro</legend>
+
+    <div class="fondo-div margen-barra">
+        <form asp-action="Edit" method="post">
+            <fieldset>
+                <legend>Editar miembro</legend>
+                    
+                <input type="hidden" asp-for="id" />
+
+                <div class="form-input">
+                    <label asp-for="name" class="form-label"></label>
+                    <input asp-for="name" class="input-style" />
+                    <span asp-validation-for="name" class="text-danger"></span>
+                </div>
+
+                <div class="form-input">
+                    <label asp-for="lastName" class="form-label"></label>
+                    <input asp-for="lastName" class="input-style" />
+                    <span asp-validation-for="lastName" class="text-danger"></span>
+                </div>
+
+                <div class="form-input">
+                    <label asp-for="dni" class="form-label"></label>
+                    <input asp-for="dni" class="input-style" />
+                    <span asp-validation-for="dni" class="text-danger"></span>
+                </div>
                 
-            <input type="hidden" asp-for="id" />
+                <div class="form-input">
+                    <label asp-for="birthdate" class="form-label"></label>
+                    <input asp-for="birthdate" class="input-style" type="date" />
+                    <span asp-validation-for="birthdate" class="text-danger"></span>
+                </div>
 
-            <div class="form-input">
-                <label asp-for="name" class="form-label"></label>
-                <input asp-for="name" class="input-style" />
-                <span asp-validation-for="name" class="text-danger"></span>
+                <div class="form-input">
+                    <label asp-for="gender" class="form-label"></label>
+                    <select asp-for="gender" class="input-style">
+                        <option value="">Seleccione...</option>
+                        <option>Masculino</option>
+                        <option>Femenino</option>
+                        <option>Otro</option>
+                    </select>
+                    <span asp-validation-for="gender" class="text-danger"></span>
+                </div>
+
+                <div class="form-input">
+                    <label asp-for="phone" class="form-label"></label>
+                    <input asp-for="phone" class="input-style" />
+                    <span asp-validation-for="phone" class="text-danger"></span>
+                </div>
+
+                <div class="form-input">
+                    <label asp-for="email" class="form-label"></label>
+                    <input asp-for="email" class="input-style" />
+                    <span asp-validation-for="email" class="text-danger"></span>
+                </div>
+
+                <div class="form-input">
+                    <label asp-for="direction" class="form-label"></label>
+                    <input asp-for="direction" class="input-style" />
+                    <span asp-validation-for="direction" class="text-danger"></span>
+                </div>
+
+                <div class="form-input">
+                    <label asp-for="note" class="form-label"></label>
+                    <textarea asp-for="note" class="input-style"></textarea>
+                </div>
+
+            </fieldset>
+
+            <div class="form-group d-flex1">
+                <button type="submit" class="btn btn2">Guardar cambios</button>
+                <a asp-action="Index" class="btn btn2">Cancelar</a>
             </div>
+        </form>
 
-            <div class="form-input">
-                <label asp-for="lastName" class="form-label"></label>
-                <input asp-for="lastName" class="input-style" />
-                <span asp-validation-for="lastName" class="text-danger"></span>
-            </div>
+    </div>
+    
+    <div class="tarjeta-info">
+        <h3>🧍 Consejo</h3>
+        <p>
+            Revisá que los datos del miembro estén actualizados antes de guardar los cambios.  
+            Podés modificar la información personal, el tipo de membresía o los datos de contacto según sea necesario.
+        </p>
+        <hr>
+        <p class="texto-secundario">
+            Recordá que también podés desactivar miembros o gestionar sus inscripciones desde la sección “Miembros Registrados”.
+        </p>
+        <div class="img-members"></div>
+    </div>
 
-            <div class="form-input">
-                <label asp-for="dni" class="form-label"></label>
-                <input asp-for="dni" class="input-style" />
-                <span asp-validation-for="dni" class="text-danger"></span>
-            </div>
-            
-            <div class="form-input">
-                <label asp-for="birthdate" class="form-label"></label>
-                <input asp-for="birthdate" class="input-style" type="date" />
-                <span asp-validation-for="birthdate" class="text-danger"></span>
-            </div>
-
-            <div class="form-input">
-                <label asp-for="gender" class="form-label"></label>
-                <select asp-for="gender" class="input-style">
-                    <option value="">Seleccione...</option>
-                    <option>Masculino</option>
-                    <option>Femenino</option>
-                    <option>Otro</option>
-                </select>
-                <span asp-validation-for="gender" class="text-danger"></span>
-            </div>
-
-            <div class="form-input">
-                <label asp-for="phone" class="form-label"></label>
-                <input asp-for="phone" class="input-style" />
-                <span asp-validation-for="phone" class="text-danger"></span>
-            </div>
-
-            <div class="form-input">
-                <label asp-for="email" class="form-label"></label>
-                <input asp-for="email" class="input-style" />
-                <span asp-validation-for="email" class="text-danger"></span>
-            </div>
-
-            <div class="form-input">
-                <label asp-for="direction" class="form-label"></label>
-                <input asp-for="direction" class="input-style" />
-                <span asp-validation-for="direction" class="text-danger"></span>
-            </div>
-
-            <div class="form-input">
-                <label asp-for="note" class="form-label"></label>
-                <textarea asp-for="note" class="input-style"></textarea>
-            </div>
-
-        </fieldset>
-
-        <div class="form-group d-flex1">
-            <button type="submit" class="btn btn2">Guardar cambios</button>
-            <a asp-action="Index" class="btn btn2">Cancelar</a>
-        </div>
-    </form>
 
 </div>
 @section Scripts {

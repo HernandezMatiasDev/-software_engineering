@@ -19,7 +19,7 @@
 @* 1. Condicional: Mostrar 'Editar' solo si el miembro está activo *@
 @if (Model.active)
 {
-    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.id">Editar</a>
+    <a class="btn " asp-action="Edit" asp-route-id="@Model.id">Editar</a>
 }
 
 @* 2. Condicional: El botón 'Volver' regresa a Index (activos) o Inactive (inactivos) *@
@@ -27,4 +27,4 @@
     // Si el miembro está activo, la acción es "Index". Si está inactivo, la acción es "Inactive".
     var backAction = Model.active ? "Index" : "Inactive";
 }
-<a class="btn btn-secondary" asp-action="@backAction">Volver</a>
+<a class="btn " asp-action="@backAction">Volver</a>

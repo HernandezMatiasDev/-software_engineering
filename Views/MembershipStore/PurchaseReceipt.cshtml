@@ -7,6 +7,7 @@
 @* Estilos CSS especiales que SÓLO se aplican al imprimir.
   Oculta los botones y la barra de navegación.
 *@
+
 <style>
     @@media print {
         .no-print {
@@ -19,8 +20,8 @@
     }
 </style>
 
-<div class="row justify-content-center">
-    <div class="col-md-8 col-lg-6">
+<div class="row justify-content-center margen-barra">
+    <div class="col-md-8 col-lg-4">
 
         @if (TempData["SuccessMessage"] != null)
         {
@@ -60,8 +61,8 @@
                         <span>@Model.paymentMethod</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between bg-light">
-                        <strong class="h5">TOTAL PAGADO:</strong>
-                        <strong class="h5">$@Model.amount.ToString("N2")</strong>
+                        <strong class="h5 text-negro">TOTAL PAGADO:</strong>
+                        <strong class="h5 text-negro">$@Model.amount.ToString("N2")</strong>
                     </li>
                 </ul>
 
@@ -69,14 +70,14 @@
         </div>
 
         @* --- Botones de Acción --- *@
-        <div class="text-center mt-4 no-print">
+        <div class="text-center mt-4 no-print d-flex1">
             
             @* Este botón usa JavaScript simple para abrir el diálogo de impresión *@
-            <button onclick="window.print()" class="btn btn-primary btn-lg">
+            <button onclick="window.print()" class="btn btn2">
                 🖨️ Imprimir Comprobante
             </button>
 
-            <a asp-controller="MyProfile" asp-action="Index" class="btn btn-secondary btn-lg">
+            <a asp-controller="MyProfile" asp-action="Index" class="btn btn2">
                 Continuar a Mi Perfil
             </a>
         </div>

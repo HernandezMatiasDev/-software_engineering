@@ -12,102 +12,121 @@
 </p>
 <hr />
 
-<div class="fondo-div-completo">
-    <form asp-action="Create" method="post">
-        <div class="row">
-            <div class="col-md-6">
-                <fieldset>
-                    <legend>Datos Personales</legend>
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="contenedor-general">
+
+    <div class="fondo-div-completo">
+        <form asp-action="Create" method="post">
+            <div class="row">
+                <div class="col-md-6">
+                    <fieldset>
+                        <legend>Datos Personales</legend>
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        
+                        <div class="form-input">
+                            <label asp-for="name" class="form-label"></label>
+                            <input asp-for="name" class="input-style" />
+                            <span asp-validation-for="name" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-input">
+                            <label asp-for="lastName" class="form-label"></label>
+                            <input asp-for="lastName" class="input-style" />
+                            <span asp-validation-for="lastName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-input">
+                            <label asp-for="dni" class="form-label"></label>
+                            <input asp-for="dni" class="input-style" />
+                            <span asp-validation-for="dni" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-input">
+                            <label asp-for="phone" class="form-label"></label>
+                            <input asp-for="phone" class="input-style" />
+                            <span asp-validation-for="phone" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-input">
+                            <label asp-for="email" class="form-label"></label>
+                            <input asp-for="email" class="input-style" />
+                            <span asp-validation-for="email" class="text-danger"></span>
+                        </div>
+
+                    </fieldset>
+                </div>
                     
-                    <div class="form-input">
-                        <label asp-for="name" class="form-label"></label>
-                        <input asp-for="name" class="input-style" />
-                        <span asp-validation-for="name" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-input">
-                        <label asp-for="lastName" class="form-label"></label>
-                        <input asp-for="lastName" class="input-style" />
-                        <span asp-validation-for="lastName" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-input">
-                        <label asp-for="dni" class="form-label"></label>
-                        <input asp-for="dni" class="input-style" />
-                        <span asp-validation-for="dni" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-input">
-                        <label asp-for="phone" class="form-label"></label>
-                        <input asp-for="phone" class="input-style" />
-                        <span asp-validation-for="phone" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-input">
-                        <label asp-for="email" class="form-label"></label>
-                        <input asp-for="email" class="input-style" />
-                        <span asp-validation-for="email" class="text-danger"></span>
-                    </div>
-
-                </fieldset>
-            </div>
-               
-                <!--<h4 class="text-inicio">Datos Personales (Heredados de Persona)</h4> -->
-                
-
-            <div class="col-md-6">
-                <fieldset>
-                    <legend>Datos del Profesor</legend>
+                    <!--<h4 class="text-inicio">Datos Personales (Heredados de Persona)</h4> -->
                     
 
-                    <div class="form-input">
-                        <label asp-for="userId" class="form-label">Cuenta de Usuario (Login)</label>
-                        <select asp-for="userId" class="input-style" asp-items="ViewBag.UserList">
-                            <option value="">-- Seleccionar Usuario (Rol: Coach) --</option>
-                        </select>
-                        <span asp-validation-for="userId" class="text-danger"></span>
-                    </div>
+                <div class="col-md-6">
+                    <fieldset>
+                        <legend>Datos del Profesor</legend>
+                        
 
-                    <div class="form-input">
-                        <label asp-for="branchId" class="form-label">Sede Asignada</label>
-                        <select asp-for="branchId" class="input-style" asp-items="ViewBag.BranchList">
-                            <option value="">-- Seleccionar Sede --</option>
-                        </select>
-                        <span asp-validation-for="branchId" class="text-danger"></span>
-                    </div>
+                        <div class="form-input">
+                            <label asp-for="userId" class="form-label">Cuenta de Usuario (Login)</label>
+                            <select asp-for="userId" class="input-style" asp-items="ViewBag.UserList">
+                                <option value="">-- Seleccionar Usuario (Rol: Coach) --</option>
+                            </select>
+                            <span asp-validation-for="userId" class="text-danger"></span>
+                        </div>
 
-                    <div class="form-input">
-                        <label asp-for="state" class="form-label">Estado (ej: Activo, Licencia)</label>
-                        <input asp-for="state" class="input-style" />
-                        <span asp-validation-for="state" class="text-danger"></span>
-                    </div>
+                        <div class="form-input">
+                            <label asp-for="branchId" class="form-label">Sede Asignada</label>
+                            <select asp-for="branchId" class="input-style" asp-items="ViewBag.BranchList">
+                                <option value="">-- Seleccionar Sede --</option>
+                            </select>
+                            <span asp-validation-for="branchId" class="text-danger"></span>
+                        </div>
 
-                    <div class="form-input">
-                        <label class="form-label">Especialidades</label>
-                        <select name="selectedSpecialties" class="input-style" multiple asp-items="ViewBag.SpecialtyList">
-                        </select>
-                        <small class="form-text text-muted">Mantenga Ctrl (o Cmd) para seleccionar varias.</small>
-                    </div>
+                        <div class="form-input">
+                            <label asp-for="state" class="form-label">Estado (ej: Activo, Licencia)</label>
+                            <input asp-for="state" class="input-style" />
+                            <span asp-validation-for="state" class="text-danger"></span>
+                        </div>
 
-                   
-                </fieldset>
-        
+                        <div class="form-input">
+                            <label class="form-label">Especialidades</label>
+                            <select name="selectedSpecialties" class="input-style" multiple asp-items="ViewBag.SpecialtyList">
+                            </select>
+                            <small class="form-text text-muted">Mantenga Ctrl (o Cmd) para seleccionar varias.</small>
+                        </div>
+
+                        
+                    </fieldset>
+            
+                </div>
             </div>
-        </div>
 
-        <div class="form-group mt-1 d-flex1">
-            <button type="submit" class="btn btn1">Guardar Profesor</button>
-            <a asp-action="Index" class="btn btn2">Volver</a>
-                    <a asp-controller="Specialties" asp-action="Create" 
-                    class="btn  btn3" target="_blank">
-                        (Crear nueva especialidad...)
-                </a>
-        </div>
-        
-    </form>
+            <div class="form-group mt-1 d-flex1">
+                <button type="submit" class="btn btn1">Guardar Profesor</button>
+                <a asp-action="Index" class="btn btn2">Volver</a>
+                        <a asp-controller="Specialties" asp-action="Create" 
+                        class="btn  btn3" target="_blank">
+                            (Crear nueva especialidad...)
+                    </a>
+            </div>
+            
+        </form>
 
+    </div>
+
+  <div class="tarjeta-info">
+        <h3>👩‍🏫 Consejo</h3>
+        <p>
+            Recordá completar todos los campos obligatorios antes de guardar.  
+            Podés crear nuevas especialidades desde el enlace de abajo.
+        </p>
+        <hr>
+        <p class="texto-secundario">
+            También podés editar profesores luego desde la sección “Profesores Activos”.
+        </p>
+                <div class="img-coaches"></div>
+
+    </div>
 </div>
+
+
 
 
 @section Scripts {

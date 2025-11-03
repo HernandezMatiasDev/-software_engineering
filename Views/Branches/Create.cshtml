@@ -5,38 +5,57 @@
 }
 
 <hr /> 
-<div class="row fondo-div margen-barra">
-    <div class="col-md-12">
-        <form asp-action="Create" method="post">
-            <fieldset>
-                <legend>Registrar nueva sede</legend>
+<div class="contenedor-general margen-barra">
 
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                
-                <div class="form-input">
-                    <label asp-for="name" class="form-label">Nombre</label>
-                    <input asp-for="name" class="input-style" />
-                    <span asp-validation-for="name" class="text-danger"></span>
-                </div>
 
-                <div class="form-input">
-                    <label asp-for="address" class="form-label">Dirección</label>
-                    <input asp-for="address" class="input-style" />
-                    <span asp-validation-for="address" class="text-danger"></span>
-                </div>
-                
-                <div class="form-input">
-                    <label asp-for="phone" class="form-label">Teléfono</label>
-                    <input asp-for="phone" class="input-style" />
-                    <span asp-validation-for="phone" class="text-danger"></span>
-                </div>
-            </fieldset>
+    <div class="row fondo-div ">
+        <div class="col-md-12">
+            <form asp-action="Create" method="post">
+                <fieldset>
+                    <legend>Registrar nueva sede</legend>
 
-            <div class="form-group d-flex1">
-                <button type="submit" class="btn btn1">Guardar</button>
-                <a asp-action="Index" class="btn btn1">Volver</a>
-            </div>
-        </form>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    
+                    <div class="form-input">
+                        <label asp-for="name" class="form-label">Nombre</label>
+                        <input asp-for="name" class="input-style" />
+                        <span asp-validation-for="name" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-input">
+                        <label asp-for="address" class="form-label">Dirección</label>
+                        <input asp-for="address" class="input-style" />
+                        <span asp-validation-for="address" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="form-input">
+                        <label asp-for="phone" class="form-label">Teléfono</label>
+                        <input asp-for="phone" class="input-style" />
+                        <span asp-validation-for="phone" class="text-danger"></span>
+                    </div>
+                </fieldset>
+
+                <div class="form-group d-flex1">
+                    <button type="submit" class="btn btn1">Guardar</button>
+                    <a asp-action="Index" class="btn btn1">Volver</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    
+    <div class="tarjeta-info">
+        <h3>📍 Consejo</h3>
+        <p>
+            Ingresá el nombre de la sede tal como querés que aparezca en los listados.  
+            Verificá que la dirección y el teléfono sean correctos para facilitar el contacto y la ubicación.
+        </p>
+        <hr>
+        <p class="texto-secundario">
+            Luego podrás editar o desactivar sedes desde la sección “Sedes Registradas”.
+        </p>
+        <div class="sede_img"></div>
+
     </div>
 </div>
 

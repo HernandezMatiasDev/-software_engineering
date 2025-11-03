@@ -5,48 +5,67 @@
 }
 
 <hr />
-<div class="row fondo-div margen-barra">
-    <div class="col-md-12">
-        <form asp-action="Edit" method="post">
 
-            <fieldset>
-                <legend>Editar Actividad</legend>
+<div class="contenedor-general margen-barra">
 
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                
-                <input type="hidden" asp-for="id" />
-                <input type="hidden" asp-for="active" /> 
-                
-                <div class="form-input">
-                    <label asp-for="name" class="form-label">Nombre</label>
-                    <input asp-for="name" class="input-style" />
-                    <span asp-validation-for="name" class="text-danger"></span>
+
+    <div class="row fondo-div">
+        <div class="col-md-12">
+            <form asp-action="Edit" method="post">
+
+                <fieldset>
+                    <legend>Editar Actividad</legend>
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    
+                    <input type="hidden" asp-for="id" />
+                    <input type="hidden" asp-for="active" /> 
+                    
+                    <div class="form-input">
+                        <label asp-for="name" class="form-label">Nombre</label>
+                        <input asp-for="name" class="input-style" />
+                        <span asp-validation-for="name" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-input">
+                        <label asp-for="description" class="form-label">Descripción</label>
+                        <textarea asp-for="description" class="input-style"></textarea>
+                        <span asp-validation-for="description" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="form-input">
+                        <label asp-for="durationMinutes" class="form-label">Duración (en minutos)</label>
+                        <input asp-for="durationMinutes" type="number" class="input-style" />
+                        <span asp-validation-for="durationMinutes" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-input">
+                        <label asp-for="difficulty" class="form-label">Dificultad</label>
+                        <input asp-for="difficulty" class="input-style" />
+                        <span asp-validation-for="difficulty" class="text-danger"></span>
+                    </div>
+                </fieldset>
+
+                <div class="form-group d-flex1">
+                    <button type="submit" class="btn btn2">Guardar cambios</button>
+                    <a asp-action="Index" class="btn btn2">Cancelar</a>
                 </div>
+            </form>
+        </div>
+    </div>
 
-                <div class="form-input">
-                    <label asp-for="description" class="form-label">Descripción</label>
-                    <textarea asp-for="description" class="input-style"></textarea>
-                    <span asp-validation-for="description" class="text-danger"></span>
-                </div>
-                
-                <div class="form-input">
-                    <label asp-for="durationMinutes" class="form-label">Duración (en minutos)</label>
-                    <input asp-for="durationMinutes" type="number" class="input-style" />
-                    <span asp-validation-for="durationMinutes" class="text-danger"></span>
-                </div>
+    <div class="tarjeta-info">
+        <h3>🏋️‍♀️ Consejo</h3>
+        <p>
+            Revisá que los datos de la actividad estén actualizados y reflejen correctamente su nivel y duración.  
+            Mantener la información precisa facilita la planificación y evita confusiones en los horarios.
+        </p>
+        <hr>
+        <p class="texto-secundario">
+            Si una actividad ya no se ofrece, podés desactivarla desde la sección “Actividades Registradas”.
+        </p>
+        <div class="img-assignaments"></div>
 
-                <div class="form-input">
-                    <label asp-for="difficulty" class="form-label">Dificultad</label>
-                    <input asp-for="difficulty" class="input-style" />
-                    <span asp-validation-for="difficulty" class="text-danger"></span>
-                </div>
-            </fieldset>
-
-            <div class="form-group d-flex1">
-                <button type="submit" class="btn btn2">Guardar cambios</button>
-                <a asp-action="Index" class="btn btn2">Cancelar</a>
-            </div>
-        </form>
     </div>
 </div>
 

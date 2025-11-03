@@ -6,7 +6,7 @@
 
 <h1 class="margen-barra">Detalles de @Model.name</h1>
 
-<table class="table table-bordered col-md-6">
+<table class="table table-fixed col-md-6">
     <tr>
         <th style="width: 20%;">ID</th>
         <td>@Model.id</td>
@@ -33,11 +33,11 @@
 @* 1. Condicional: Mostrar 'Editar' solo si la sede está activa *@
 @if (Model.active)
 {
-    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.id">Editar</a>
+    <a class="btn " asp-action="Edit" asp-route-id="@Model.id">Editar</a>
 }
 
 @* 2. Condicional: El botón 'Volver' regresa a Index (activos) o Inactive (inactivos) *@
 @{
     var backAction = Model.active ? "Index" : "Inactive";
 }
-<a class="btn btn-secondary" asp-action="@backAction">Volver</a>
+<a class="btn " asp-action="@backAction">Volver</a>

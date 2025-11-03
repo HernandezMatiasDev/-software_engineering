@@ -13,16 +13,15 @@
         <p>Completa tu perfil comprando una membresía.</p>
         <div class="mt-4">
             @* TODO: Crear BrowseController *@
-            <a class="btn btn-info btn-lg m-2" asp-controller="Browse" asp-action="Branches">Ver Clases por Sede</a>
+            <a class="btn  btn-lg m-2" asp-controller="Browse" asp-action="Branches">Ver Clases por Sede</a>
             @* TODO: Crear MembershipStoreController *@
-            <a class="btn btn-success btn-lg m-2" asp-controller="MembershipStore" asp-action="Index">Ver Membresías</a>
+            <a class="btn  btn-lg m-2" asp-controller="MembershipStore" asp-action="Index">Ver Membresías</a>
         </div>
     }
     else if (User.IsInRole(UserRole.member.ToString())) //
     {
         <p>Accede a tu perfil y gestiona tus clases.</p>
          <div class="mt-4">
-            <a class="btn btn-primary btn-lg m-2" asp-controller="MyProfile" asp-action="Index">Mi Perfil</a>
              @* TODO: Crear BrowseController *@
             <a class="btn btn-info btn-lg m-2" asp-controller="Browse" asp-action="Branches">Inscribirse a Clases</a>
         </div>
@@ -30,16 +29,55 @@
     else if (User.IsInRole(UserRole.SuperUser.ToString())) //
     {
          <p>Panel de Administración Principal.</p>
-          <div class="mt-4">
-             <a class="btn btn-secondary btn-lg m-2" asp-controller="Users" asp-action="Index">Gestionar Usuarios</a>
-             <a class="btn btn-secondary btn-lg m-2" asp-controller="Branches" asp-action="Index">Gestionar Sedes</a>
-             <a class="btn btn-secondary btn-lg m-2" asp-controller="Members" asp-action="Index">Gestionar Miembros</a>
-             @* Añade más botones de admin aquí si quieres *@
-         </div>
+          
     }
     else // Para otros roles futuros (Manager, Coach, etc.)
     {
         <p>Dashboard pendiente para tu rol.</p>
     }
+
+    <div class="contenedor-general">
+
+
+        <div class="tarjeta-info info-t">
+            <h3>🏋️‍♂️ Acerca de Nosotros</h3>
+            <p>
+                En <strong>Su Mejor Peso</strong> trabajamos para promover un estilo de vida saludable a través de la actividad física, la nutrición y el bienestar integral.  
+                Nuestro objetivo es acompañarte en cada paso del proceso, brindando un espacio donde entrenadores, miembros y administradores puedan conectar y progresar juntos.
+            </p>
+            <hr>
+     
+            <div class="img-membership"></div>
+        </div> 
+
+       <div class="tarjeta-info info-t">
+           <h3>🔒 Privacidad</h3>
+            <p>
+                Los datos personales gestionados en este sistema son confidenciales y se utilizan únicamente con fines administrativos y operativos.  
+                Su tratamiento cumple con las políticas internas de privacidad y la legislación vigente sobre protección de datos.
+            </p>
+            <hr>
+            <p class="texto-secundario">
+                Toda la información registrada —incluidos nombres, correos electrónicos y roles de usuario— se almacena de forma segura y solo es accesible para personal autorizado.
+            </p>
+            <div class="img-members"></div>
+        </div>   
+ 
+        
+        <div class="tarjeta-info info-t">
+            <h3>🔥 Motivación</h3>
+            <p>
+                Cada paso cuenta, cada entrenamiento te acerca un poco más a tu mejor versión.  
+                No se trata de ser el mejor, sino de superarte cada día, con constancia, esfuerzo y actitud.
+            </p>
+            <hr>
+            <p class="texto-secundario">
+                Recordá: los grandes cambios no ocurren de un día para el otro, pero comienzan con una sola decisión.  
+                Hoy es un gran día para empezar.
+            </p>
+            <div class="img-users"></div>
+        </div>
+    
+    </div>
 
 </div>

@@ -7,83 +7,100 @@
 <h1 class="margen-barra">Registrar nuevo usuario</h1>
 <hr />
 
-<div class="row fondo-div">
-    <div class="col-md-12 fondo_priv">
-        <form asp-action="Create" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            
+<div class="contenedor-general">
 
-            <fieldset>
-                <legend>Datos de Acceso</legend>
-                <div class="form-input">
-                    <label asp-for="userName" class="form-label">Nombre de Usuario</label>
-                    <input asp-for="userName" class="input-style" />
-                    <span asp-validation-for="userName" class="text-danger"></span>
-                </div>
+    <div class="row fondo-div">
+        <div class="col-md-12 fondo_priv">
+            <form asp-action="Create" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 
-                <div class="form-input">
-                    <label class="form-label">Contraseña</label>
-                    <input name="Password" type="password" class="input-style" />
-                    <span class="text-muted small">El controlador debe hashear esto.</span>
-                </div>
 
-            </fieldset>
-            
-            
-       
-            <hr/>
+                <fieldset>
+                    <legend>Datos de Acceso</legend>
+                    <div class="form-input">
+                        <label asp-for="userName" class="form-label">Nombre de Usuario</label>
+                        <input asp-for="userName" class="input-style" />
+                        <span asp-validation-for="userName" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="form-input">
+                        <label class="form-label">Contraseña</label>
+                        <input name="Password" type="password" class="input-style" />
+                        <span class="text-muted small">El controlador debe hashear esto.</span>
+                    </div>
 
-            <fieldset>
-                <legend>Datos Personales</legend>
-
-                <div class="form-input">
-                    <label asp-for="name" class="form-label">Nombre</label>
-                    <input asp-for="name" class="input-style" />
-                    <span asp-validation-for="name" class="text-danger"></span>
-                </div>
-
-                <div class="form-input">
-                    <label asp-for="lastName" class="form-label">Apellido</label>
-                    <input asp-for="lastName" class="input-style" />
-                    <span asp-validation-for="lastName" class="text-danger"></span>
-                </div>
+                </fieldset>
                 
-                <div class="form-input">
-                    <label asp-for="email" class="form-label">Email</label>
-                    <input asp-for="email" class="input-style" />
-                    <span asp-validation-for="email" class="text-danger"></span>
+                
+        
+                <hr/>
+
+                <fieldset>
+                    <legend>Datos Personales</legend>
+
+                    <div class="form-input">
+                        <label asp-for="name" class="form-label">Nombre</label>
+                        <input asp-for="name" class="input-style" />
+                        <span asp-validation-for="name" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-input">
+                        <label asp-for="lastName" class="form-label">Apellido</label>
+                        <input asp-for="lastName" class="input-style" />
+                        <span asp-validation-for="lastName" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="form-input">
+                        <label asp-for="email" class="form-label">Email</label>
+                        <input asp-for="email" class="input-style" />
+                        <span asp-validation-for="email" class="text-danger"></span>
+                    </div>
+                </fieldset>
+
+                <hr/>
+
+                <fieldset>
+                    <legend>Permisos y Sede</legend>
+                    <div class="form-input">
+                        <label asp-for="Role" class="form-label">Rol</label>
+                        <select asp-for="Role" class="input-style" asp-items="ViewBag.Roles">
+                            <option value="">-- Seleccionar Rol --</option>
+                        </select>
+                        <span asp-validation-for="Role" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-input">
+                        <label asp-for="branchId" class="form-label">Sede</label>
+                        <select asp-for="branchId" class="input-style" asp-items="ViewBag.Branches">
+                            <option value="">-- Sin Sede (ej: SuperUser) --</option>
+                        </select>
+                        <span asp-validation-for="branchId" class="text-danger"></span>
+                    </div>
+                </fieldset>
+
+                <div class="form-group d-flex1">
+                    <button type="submit" class="btn btn2">Guardar</button>
+                    <a asp-action="Index" class="btn btn2">Volver</a>
                 </div>
-            </fieldset>
-
-            <hr/>
-
-            <fieldset>
-                <legend>Permisos y Sede</legend>
-                <div class="form-input">
-                    <label asp-for="Role" class="form-label">Rol</label>
-                    <select asp-for="Role" class="input-style" asp-items="ViewBag.Roles">
-                        <option value="">-- Seleccionar Rol --</option>
-                    </select>
-                    <span asp-validation-for="Role" class="text-danger"></span>
-                </div>
-
-                <div class="form-input">
-                    <label asp-for="branchId" class="form-label">Sede</label>
-                    <select asp-for="branchId" class="input-style" asp-items="ViewBag.Branches">
-                        <option value="">-- Sin Sede (ej: SuperUser) --</option>
-                    </select>
-                    <span asp-validation-for="branchId" class="text-danger"></span>
-                </div>
-            </fieldset>
-
-            <div class="form-group d-flex1">
-                <button type="submit" class="btn btn2">Guardar</button>
-                <a asp-action="Index" class="btn btn2">Volver</a>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
-</div>
 
+
+    <div class="tarjeta-info">
+        <h3>👤 Consejo</h3>
+        <p>
+            Completá todos los datos personales y asigná el rol correspondiente antes de guardar.  
+            Recordá usar un correo válido, ya que servirá para el acceso al sistema y notificaciones.
+        </p>
+        <hr>
+        <p class="texto-secundario">
+            Luego podrás editar la información o cambiar el rol del usuario desde la sección “Usuarios Activos”.
+        </p>
+        <div class="img-users"></div>
+    </div>
+
+</div>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }

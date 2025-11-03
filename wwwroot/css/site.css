@@ -20,7 +20,7 @@ html
 
 body {
   margin-bottom: 60px;
-  background-image: url("gym_fondo.webp");
+  background-image: url("imagen-gym.png");
   background-size: cover;        
   background-position: center;   
   background-repeat: no-repeat; 
@@ -28,16 +28,25 @@ body {
   overflow-x: hidden !important;
 }
 
+.list-group-item{
+  background-color: #2a2a2a;
+  color: #ddd;
+}
+.list-group-item:hover{
+  background-color: #333;
+  color: #ddd;
+}
 
 .body_overlay {
-  position: absolute;  
-  bottom: 0;
-  left: 0;
-  height: 100%;
-  width: 100vw;
-  /*background: linear-gradient(  transparent , #000b 85% ) ;*/
-  background-color: #dca5;
+  position: fixed;  
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;  height: 100%;
+  width: 100%;
+  background: linear-gradient(  transparent , #000b 85% ) ; 
   z-index: 1;
+  pointer-events: none;
 }
 
 .delante,  .dropdown-menu{
@@ -239,9 +248,7 @@ body {
 
 /* Estilos de titulo de form  */
 
-.margen-barra{
-  margin-top: 150px;
-}
+
 .text-inicio{
   color: #ddd;
   letter-spacing: 3px;
@@ -277,6 +284,7 @@ body {
 }
 
 
+
 .input-style:focus
 {
   outline: solid 1px #ddd;
@@ -305,8 +313,6 @@ body {
 }
 
 
-
-
 .form-label
 {
   margin-left: 0.5em;
@@ -314,13 +320,7 @@ body {
   line-height: 0.1;
 }
 
-.h1-style{
-  color: #ddd;
-  letter-spacing: 3px;
-  font-family: sans-serif;
-  border-bottom: solid 1px #dc2;
-  background-color: #222;
-}
+
 
 fieldset
 {
@@ -369,24 +369,53 @@ legend {
 }
 
 
-.table-striped{
+/* .table-striped{
   border: solid 3px #222;
   table-layout: fixed;
   width: 100%  !important;
+} */
+
+
+.table{
+  background-color: #2a2a2a;
 }
+
+.table-striped{
+  table-layout:  fixed;
+  background-color: #2a2a2a;    /* Fondo oscuro general */
+  border-collapse: collapse;
+  border-radius: 8px;           /* Bordes redondeados */
+  width: 100%  !important;
+}
+
+/* Encabezado de la tabla */
+th{
+  background-color: #111 !important;
+  color: #eee !important;
+  text-transform: uppercase;     /* Mayúsculas */
+  letter-spacing: 1.5px;
+  font-size: 0.8rem;
+  padding: 1.25rem 0.75rem;
+  border-bottom: 2px solid #dc2; /* Tu línea dorada */
+}
+
 
 
 td{
   color: #222 !important;
-  background-color: #ddd !important;
-  border-right: solid 1px #222 ;
   border-bottom: solid 1px #222;
 }
 
-th{
+/* th{
   background-color: #111 !important;
   color: #ddd !important;
-}
+} */
+
+
+
+
+
+
 .table-striped th,
 .table-striped td {
   word-wrap: nowrap;
@@ -398,6 +427,45 @@ th{
 .table-striped td:last-child {
   overflow: visible !important;
 }
+
+
+/* REEMPLAZA la regla de cebra por esta */
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+  /* Esto le gana a la regla de Bootstrap (que es .table-striped > tbody > tr:nth-of-type(odd) > *)
+    y fuerza a que el fondo de la celda sea transparente.
+  */
+  background-color: transparent !important;
+}
+/* AÑADIR ESTO PARA UN EFECTO "HOVER" SUTIL */
+.table-striped > tbody > tr:hover {
+    background-color: #333 !important; /* Un gris oscuro al pasar el ratón */
+    cursor: default;
+}
+
+th{
+  background-color: #111 !important;
+  color: #eee !important;
+  text-transform: uppercase;     /* Mayúsculas para un look profesional */
+  letter-spacing: 1.5px;         /* Más espaciado entre letras */
+  font-size: 0.8rem;             /* Un poco más pequeño y sutil */
+  padding: 1.25rem 0.75rem;      /* Más padding vertical para que "respire" */
+  border-bottom: 2px solid #dc2; /* Línea de acento dorada */
+}
+.table-striped th,
+.table-striped td {
+  word-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* AÑADE ESTA REGLA para estilizar todas las celdas */
+td {
+  color: #ddd !important;            /* Texto claro */
+  background-color: transparent !important; /* Fondo transparente */
+  border-bottom: solid 1px #3a3a3a; /* Sutil línea divisoria */
+  padding: 1rem 0.75rem;             /* Espaciado */
+  vertical-align: middle;
+}
+
 
 
 /* boton dropdown*/
@@ -438,7 +506,6 @@ th{
   visibility: visible;
 }
 
-
 .dropdown-item
 {
   font-size: 13px;
@@ -450,17 +517,14 @@ th{
   overflow-wrap: anywhere;
 }
 
-
 .dropdown-item:hover, 
 .dropdown-item:focus{
   border-radius: 7px;
 }
 
-
 .dropdown-menu-table.show {
   transform: translateY(27px) !important;
 }
-
 
 .dropdown-toggle{
   position: relative;
@@ -480,14 +544,12 @@ th{
   z-index: 1000 !important;
 }
 
-
 .dropdown-toggle.show {
   box-shadow: none !important;
   outline: none !important;
   color: #ddd !important;
   background-color: #323232 !important;
   border-bottom-left-radius: 0px !important;
-  
   border-bottom-right-radius: 0px !important;
 }
 
@@ -505,7 +567,6 @@ th{
 .dropdown-menu-table[data-popper-placement^="top"].show {
   opacity: 1 !important;
   transform: translateY(-27px) !important;
-  
 }
 
 .dropdown:has(.dropdown-menu-table[data-popper-placement^="top"].show) > .toggle-table {
@@ -532,7 +593,6 @@ main{
   .container{
     min-width: 90vw;
   }
-  
 } 
 
 @media (max-width: 930px)
@@ -568,11 +628,7 @@ main{
     padding-right: 3px !important;
     padding-left: 3px !important;
   }
-  .toggle-table{
-    padding-right: 3px !important;
-    padding-left: 3px !important;
-    font-size: 9px;
-  } 
+ 
     .dropdown-menu-table.show {
   transform: translateY(11px) !important;
   } 
@@ -594,6 +650,11 @@ main{
     padding-right: 5px !important;
     letter-spacing: 1px;
   }
+   .toggle-table{
+    padding-right: 3px !important;
+    padding-left: 3px !important;
+    font-size: 9px !important;
+  } 
 
 }
 
@@ -605,17 +666,163 @@ main{
     padding-left: 3px !important;
     font-size: 7px;
   }
-    .dropdown-menu-table.show {
+
+   /* .dropdown-menu-table.show {
   transform: translateY(5px) !important;
   } 
   .dropdown-menu-table[data-popper-placement^="top"].show {
   opacity: 1 !important;
   transform: translateY(-7px) !important;
-  }
-    .dropdown-item
+  }*/
+
+  .dropdown-item
   {
     font-size: 9px !important;
   }
 }
 
+.contenedor-general {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: nowrap;
+  margin-top: 1rem;
+  align-items: center !important;
+}
+
+.tarjeta-info, .card {
+  background-color: rgba(20, 20, 20, 0.8);
+  border: 1px solid #e5c900;
+  border-radius: 15px;
+  padding: 20px;
+  color: #fff;
+  width: 320px;
+  height: fit-content;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  animation: aparecer 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Imagen decorativa */
+.img-coaches, .img-assignaments, 
+.sede_img, .img-classroom, .img-members, 
+.img-specialties,.img-membership, .img-users {
+  
+  background-size: cover;
+  background-position: center;
+  width: 90%;
+  height: 160px;
+  border-radius: 10px;
+  margin: 15px 0;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+/* Texto */
+.tarjeta-info h3 {
+  font-weight: bold;
+  color: #ffe76b;
+  margin-bottom: 10px;
+}
+
+.tarjeta-info hr {
+  border-color: #e5c90080;
+  width: 100%;
+}
+
+.tarjeta-info .texto-secundario {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.info-t{
+    background-color: rgba(20, 20, 20, 0.9);
+
+}
+/* Ocultar tarjeta en pantallas angostas */
+@media (max-width: 992px) {
+  .tarjeta-info {
+    display: none;
+  }
+
+}
+
+/* Animación */
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.img-assignaments {
+  background-image: url("actividades_img.jpeg"); /* ruta ajustable */
+}
+
+.sede_img {
+  background-image: url("sede_img.jpg"); /* ruta ajustable */
+}
+.img-classroom {
+  background-image: url("clases_img.jpeg"); /* ruta ajustable */
+}
+
+.img-members {
+  background-image: url("miembros-img.jpeg"); /* ruta ajustable */
+}
+.img-coaches {
+  background-image: url("entrenadores_img.jpg"); /* ruta ajustable */
+}
+.img-specialties{
+  background-image: url("specialidades_img.jpeg");
+}
+
+.img-membership {
+  background-image: url("membresias_img.jpeg");  
+}
+.img-users{
+  background-image: url("usuarios_img.jpeg");
+}
+
+.margen-barra{
+  margin-top: 150px;
+}
+
+h1 {
+    color: #ddd;
+    font-weight: bold;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    letter-spacing: 0.5px;
+    text-shadow:
+        3px 3px 10px rgba(0, 0, 0, 0.95),
+        0px 0px 6px rgba(0, 0, 0, 0.8);
+}
+
+h1 + p {
+  color: #ddd;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-shadow:
+        3px 3px 10px rgba(0, 0, 0, 0.95),
+        0px 0px 6px rgba(0, 0, 0, 0.8);
+}
+h4 + p {
+  color: #ddd;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-shadow:
+        3px 3px 10px rgba(0, 0, 0, 0.95),
+        0px 0px 6px rgba(0, 0, 0, 0.8);
+}
+h4, .text-claro{
+    color: #ddd;
+    text-shadow:
+        3px 3px 10px rgba(0, 0, 0, 0.95),
+        0px 0px 6px rgba(0, 0, 0, 0.8);
+}
+
+.text-negro{
+  color: #222;
+}
 
